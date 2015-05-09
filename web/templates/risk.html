@@ -2,6 +2,16 @@
 {% block head %}
     {{ block.super }}
 {% endblock %}
-{% block content %}
+{% block header %}
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="risk.html" id="current">risk calculation</a></li>
+      <li><a href="history.html">purchease history</a></li>
+      <li><a href="alert.html">alerts</a></li>
+      <li><a href="support.html">support</a></li>
+      <li><a href="about.html">about</a></li>
+    </ul>
+{% endblock %}
+{% block content
 risk
 {% endblock %}
