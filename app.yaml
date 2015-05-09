@@ -13,7 +13,7 @@ handlers:
   static_dir: web/static
 
 - url: /support
-  script: web.pages.alert.app
+  script: web.pages.support.app
 
 - url: /risk
   script: web.pages.risk.app
