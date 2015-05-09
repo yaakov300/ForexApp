@@ -9,6 +9,9 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /
+  script: web.pages.home.app
+
 - url: /static
   static_dir: web/static
 
@@ -27,10 +30,10 @@ handlers:
 - url: /about
   script: web.pages.about.app
 
-- url: /
+- url: /home
   script: web.pages.home.app
 
-- url: .*
+- url: /(.*)
   script: web.pages.home.app
 
 
