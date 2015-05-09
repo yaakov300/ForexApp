@@ -12,6 +12,21 @@ handlers:
 - url: /static
   static_dir: web/static
 
+- url: /support
+  script: web.pages.alert.app
+
+- url: /risk
+  script: web.pages.risk.app
+
+- url: /history
+  script: web.pages.history.app
+
+- url: /alert
+  script: web.pages.alert.app
+
+- url: /about
+  script: web.pages.about.app
+
 - url: /
   script: web.pages.home.app
 
