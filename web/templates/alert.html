@@ -13,10 +13,13 @@
     </ul>
 {% endblock %}
 {% block main %}
-
-    <div style="float: left;">
+alert
+{% endblock %}
+{% block sidebar %}
+<h1>Enter alert</h1>
+<div style="float: left;">
     <p>
-        Symbol:
+        Symbol:<br>
         <select>
             <option value="EURUSD" >EUR/USD</option>
             <option value="USDJPY">USD/JPY</option>
@@ -29,16 +32,14 @@
             <option value="DAX">DAX</option>
             <option value="GOLD">GOLD</option>
              <option value="C.OIL">C.OIL</option>
-        </select><br><br>
-
+        </select><br>
         Enter Price: <input type="number" name="enterPrice">
-        <br><br>
+        <br>
         Stop Lose: <input type="number"   name="stopLose">
-        <br><br>
+        <br>
         Take Profit: <input type="number"   name="takeProfit">
-        <br><br>
-
-        Volume:
+        <br>
+        Volume:<br>
         <select>
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
@@ -50,15 +51,9 @@
             <option value="0.8">0.8</option>
             <option value="0.9">0.9</option>
             <option value="1.0">1.0</option>
-        </select><br><br>
-
+        </select><br>
         Date: <input type="number"   name="date">
-        <br><br>
-
-        <br><br> <button type="buttonConfirm"  style="width:200px; height:40px;font-size:20px;">Confirm</button><br>
+        <br><br> <button type="buttonConfirm"  style="width:100px; height:30px;font-size:15px;">Confirm</button><br>
     </p>
     </div>
-{% endblock %}
-{% block sidebar %}
-sidebar
 {% endblock %}
