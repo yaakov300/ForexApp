@@ -247,7 +247,8 @@ input.button {
 	clear: both;
 	float: left;
 	width: 100%;
-	background: #FFF url(../images/contentbg.jpg) repeat-y center top;	
+    background: #FEFFDB;
+	#background: #FFF url(../images/contentbg.jpg) repeat-y center top;
 }
 #content {
 	text-align: left;	
@@ -287,7 +288,7 @@ input.button {
 #main {
 	margin: 0 19px 0 0; 
 	padding: 0;		
-	width: 590px;
+	width: 800px;
 	float: left;	
 }
 #main p, #main h1, #main h2, #main h3, #main blockquote, #main form {
