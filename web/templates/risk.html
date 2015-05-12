@@ -13,7 +13,7 @@
     </ul>
 {% endblock %}
 {% block main %}
-    <table align="left" style="width:70%">
+    <table align="left" style="width:75%">
         <tr>
             <td>Symbol:</td>
             <td>
@@ -35,7 +35,8 @@
         <tr>
             <td>Enter Price: </td>
             <td> <input type="number" name="enterPrice"></td>
-            <td><button type="buttonGetPrice" style="width:100px; height:30px;font-size:15px;" >get price</button></td>
+            <td><a href="#" class="myButton" type="buttonConfirm">get price</a>
+
         </tr>
 
         <tr>
@@ -61,10 +62,11 @@
         </tr>
         <tr>
             <td></td>
-            <td><button type="buttonGetRisk"  style="width:160px; height:30px;font-size:15px;">get risk!</button></td>
+            <td><br> <a href="#" class="myButton" type="buttonConfirm">get risk!</a>
+
         </tr>
     </table>
 {% endblock %}
 {% block sidebar %}
-<p>Your risk in this deal is: 100$</p>
+<p>Your risk is: 100$</p>
 {% endblock %}
