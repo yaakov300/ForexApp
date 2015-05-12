@@ -13,6 +13,62 @@
     </ul>
 {% endblock %}
 {% block main %}
+
+<H3>Alerts table</H3>
+<!--add popup-->
+<a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='block';
+    document.getElementById('fade').style.display='block'">add</a>
+<!--the popup-->
+<div id="light" class="white_content">
+    <h1>Enter alert</h1>
+<div style="float: left;">
+    <p>
+        Symbol:<br>
+        <select>
+            <option value="EURUSD" >EUR/USD</option>
+            <option value="USDJPY">USD/JPY</option>
+            <option value="USDCAN">USD/CAN</option>
+            <option value="GBPUSD">GBP/USD</option>
+            <option value="AUSUSD">AUS/USD</option>
+            <option value="NZDUSD">NZD/USD</option>
+            <option value="SP">minSP</option>
+            <option value="NSDQ">NSDQ</option>
+            <option value="DAX">DAX</option>
+            <option value="GOLD">GOLD</option>
+             <option value="C.OIL">C.OIL</option>
+        </select><br>
+        Enter Price: <input type="number" name="enterPrice">
+        <br>
+        Stop Lose: <input type="number"   name="stopLose">
+        <br>
+        Take Profit: <input type="number"   name="takeProfit">
+        <br>
+        Volume:<br>
+        <select>
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1.0">1.0</option>
+        </select><br>
+        Date:<br> <input type="date" name="date" style="width:155px;">
+        <br><br> <a href="#" class="myButton" type="buttonConfirm">Confirm</a>
+        <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
+           document.getElementById('fade').style.display='none'">Close</a>
+    </p>
+    </div>
+
+</div>
+
+<!-- the background for popup-->
+<div id="fade" class="black_overlay"></div>
+<br><br>
+
 <div class="CSSTableGenerator" >
                 <table >
                     <tr>
@@ -121,45 +177,5 @@
 
 <!--
 {% block sidebar %}
-<h1>Enter alert</h1>
-<div style="float: left;">
-    <p>
-        Symbol:<br>
-        <select>
-            <option value="EURUSD" >EUR/USD</option>
-            <option value="USDJPY">USD/JPY</option>
-            <option value="USDCAN">USD/CAN</option>
-            <option value="GBPUSD">GBP/USD</option>
-            <option value="AUSUSD">AUS/USD</option>
-            <option value="NZDUSD">NZD/USD</option>
-            <option value="SP">minSP</option>
-            <option value="NSDQ">NSDQ</option>
-            <option value="DAX">DAX</option>
-            <option value="GOLD">GOLD</option>
-             <option value="C.OIL">C.OIL</option>
-        </select><br>
-        Enter Price: <input type="number" name="enterPrice">
-        <br>
-        Stop Lose: <input type="number"   name="stopLose">
-        <br>
-        Take Profit: <input type="number"   name="takeProfit">
-        <br>
-        Volume:<br>
-        <select>
-            <option value="0.1">0.1</option>
-            <option value="0.2">0.2</option>
-            <option value="0.3">0.3</option>
-            <option value="0.4">0.4</option>
-            <option value="0.5">0.5</option>
-            <option value="0.6">0.6</option>
-            <option value="0.7">0.7</option>
-            <option value="0.8">0.8</option>
-            <option value="0.9">0.9</option>
-            <option value="1.0">1.0</option>
-        </select><br>
-        Date: <input type="date" name="date" style="width:155px;">
-        <br><br> <a href="#" class="myButton" type="buttonConfirm">Confirm</a><br>
 
-    </p>
-    </div>
 {% endblock %}-->
