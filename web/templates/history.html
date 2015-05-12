@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+
+    {{ block.super }}
+
+{% endblock %}
+{% block header %}
+    <ul>
+      <li><a href="home">Home</a></li>
+      <li><a href="risk">risk calculation</a></li>
+      <li><a href="history" id="current">purchases history</a></li>
+      <li><a href="alert">alerts</a></li>
+      <li><a href="support">support</a></li>
+      <li><a href="about">about</a></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block main %}
+<<<<<<< HEAD
+<div class=".CSSTableGenerator" >
+                <table >
+                    <tr>
+                        <td>
+                            Title 1
+                        </td>
+                        <td >
+                            Title 2
+                        </td>
+                        <td>
+                            Title 3
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Row 2
+                        </td>
+                        <td>
+                            Row 2
+                        </td>
+                        <td>
+                            Row 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Row 2
+                        </td>
+                        <td>
+                            Row 2
+                        </td>
+                        <td>
+                            Row 2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Row 3
+                        </td>
+                        <td>
+                            Row 3
+                        </td>
+                        <td>
+                            Row 3
+                        </td>
+                    </tr>
+                </table>
+            </div>
+=======
+<!--HTML-->
+
+HISTORY
+
+>>>>>>> 8b6aebced9a03db225b7b35642eaebc1968a7cb7
+{% endblock %}
+
+<!-- SideBar-->
+{% block sidebar %}
+<<<<<<< HEAD
+sidebar
+{% endblock %}
+
+
+=======
+
+<h1>Deal History</h1>
+<div style="float: left;">
+    <p>
+        Symbol:<br>
+        <select>
+            <option value="EURUSD" >EUR/USD</option>
+            <option value="USDJPY">USD/JPY</option>
+            <option value="USDCAN">USD/CAN</option>
+            <option value="GBPUSD">GBP/USD</option>
+            <option value="AUSUSD">AUS/USD</option>
+            <option value="NZDUSD">NZD/USD</option>
+            <option value="SP">minSP</option>
+            <option value="NSDQ">NSDQ</option>
+            <option value="DAX">DAX</option>
+            <option value="GOLD">GOLD</option>
+             <option value="C.OIL">C.OIL</option>
+        </select><br>
+        Eatery Price:<br> <input type="number" name="enterPrice">
+        <br>
+        Stop Lose:<br> <input type="number"   name="stopLose">
+        <br>
+        Take Profit:<br> <input type="number"   name="takeProfit">
+        <br>
+        Profit/Loss:<br> <input type="number" name="profitOrLoss">
+        <br>
+        Date:<br> <input type="date"   name="date">
+        <br>
+        Remarks:<br> <input type="text" name="remarks">
+        <br>
+        Snap Shot: <input type="image" name="snapShot">
+        <br>
+        <br><br>
+        <button type="buttonConfirm" style="width:100px; height:30px;font-size:15px;">Confirm</button>
+        <br>
+    </p>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+
+>>>>>>> 8b6aebced9a03db225b7b35642eaebc1968a7cb7
