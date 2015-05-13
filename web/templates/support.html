@@ -14,7 +14,17 @@
 {% endblock %}
 {% block main %}
 
-    <h2>
- if you have a problem or question please send as E-Mail
-    </h2>
+<h2>Comment us</h2>
+
+<form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
+Name:<br>
+<input type="text" name="name" value="your name"><br>
+E-mail:<br>
+<input type="text" name="mail" value="your email"><br>
+Comment:<br>
+<input type="text" name="comment" value="your comment" size="50"><br><br>
+<input type="submit" value="Send">
+<input type="reset" value="Reset">
+</form>
+
 {% endblock %}
