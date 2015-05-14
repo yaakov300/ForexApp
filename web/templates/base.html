@@ -14,7 +14,22 @@
       <h1 id="logo">Forex<span class="orange">App</span></h1>
         <h2 id="slogan">calculate your risk</h2>
       <div id="header-links">
-      <p> <a href="#">sign in</a> | <a href="#">sign up</a>
+      <p> <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';
+    document.getElementById('fade').style.display='block'">sign in</a> | <a href="#">sign up</a>
+<div id="light" class="white_content">
+
+<div style="float: left;">
+    <p>
+        User-Name:<br> <input type="text" name="userName">
+        <br>
+        Password:<br> <input type="password"   name="password">
+        <br>
+        <br><br>
+        <a href="#" class="myButton" type="buttonConfirm">Login</a>
+         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none'">Close</a>
+    </p>
+    </div>
+</div>
     </div>
         {% block header %}
         {% endblock %}
