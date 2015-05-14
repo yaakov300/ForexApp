@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+{% block header %}
+    <ul>
+      <li><a href="home" >Home</a></li>
+      <li><a href="risk">risk calculation</a></li>
+      <li><a href="history">purchease history</a></li>
+      <li><a href="alert">alerts</a></li>
+      <li><a href="support">support</a></li>
+      <li><a href="about">about</a></li>
+    </ul>
+{% endblock %}
+{% block main %}
+    <h2>
+        User-Name:<br> <input type="text" name="userName">
+        <br>
+        Password:<br> <input type="password"   name="password">
+        <br>
+        Confirm-Password:<br> <input type="password"   name="password">
+        <br>
+        Mail:<br> <input type="text" name="userName">
+        <br><br>
+        <a href="#" class="myButton" type="buttonConfirm">Sign Me!</a>
+    </h2>
+<br>
+
+{% endblock %}

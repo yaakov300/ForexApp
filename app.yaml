@@ -24,6 +24,9 @@ handlers:
 - url: /history
   script: web.pages.history.app
 
+- url: /register
+  script: web.pages.register.app
+
 - url: /alert
   script: web.pages.alert.app
 
