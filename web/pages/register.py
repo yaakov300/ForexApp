@@ -13,12 +13,13 @@ class RegisterHandler(webapp2.RequestHandler):
         self.response.write(html)
 
     def post(self):
+
         userName = self.request.get("userName")
         password = self.request.get("password")
         confPass = self.request.get("confPass")
         mail = self.request.get("mail")
 
-       
+
 
 
         self.response.out.write(userName+password+confPass+mail)
