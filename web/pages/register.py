@@ -1,12 +1,7 @@
-__author__ = 'Oshri'
-
 from google.appengine.ext.webapp import template
-from models.user import User
-from google.appengine.api import users
-from google.appengine.ext import ndb
-
-
 import webapp2
+
+from models.user import User
 
 class RegisterHandler(webapp2.RequestHandler):
     def get(self):
@@ -15,15 +10,15 @@ class RegisterHandler(webapp2.RequestHandler):
         self.response.write(html)
 
     def post(self):
-        userName = self.request.get("userName")
-        password = self.request.get("password")
-        confPass = self.request.get("confPass")
-        mail = self.request.get("mail")
+        uName = self.request.get('userName')
+        pwd = self.request.get('password')
+        ml = self.request.get('mail')
+        self.user = User(userName=uName ,mail=ml,password=pwd)
+        self.user.put()
+        self.response.write(uName+pwd+ml)
 
 
 
-
-        self.response.out.write(userName+password+confPass+mail)
 
 app = webapp2.WSGIApplication([
     ('/register', RegisterHandler)

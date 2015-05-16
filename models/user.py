@@ -1,7 +1,10 @@
-__author__ = 'אושרי'
+__author__ = 'Yaacov'
+
+from google.appengine.api import users
 from google.appengine.ext import ndb
 
+
 class User:
-    userName = nbd.Stringoroperty()
-    mail = nbd.Stringoroperty()
-    password = nbd.Stringoroperty()
+    userName = ndb.StringProperty()
+    mail = ndb.StringProperty()
+    password = ndb.StringProperty()
