@@ -23,7 +23,7 @@
     <h1>Enter alert</h1>
 <div style="float: left;">
     <p>
-        Symbol:<br>
+        Symbol:
         <select>
             <option value="EURUSD" >EUR/USD</option>
             <option value="USDJPY">USD/JPY</option>
@@ -37,13 +37,13 @@
             <option value="GOLD">GOLD</option>
              <option value="C.OIL">C.OIL</option>
         </select><br>
-        Enter Price: <input type="number" name="enterPrice">
+        Enter Price:<br> <input type="number" name="enterPrice">
         <br>
-        Stop Lose: <input type="number"   name="stopLose">
+        Stop Lose: <br><input type="number"   name="stopLose">
         <br>
-        Take Profit: <input type="number"   name="takeProfit">
+        Take Profit: <br><input type="number"   name="takeProfit">
         <br>
-        Volume:<br>
+        Volume:
         <select>
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
@@ -56,6 +56,9 @@
             <option value="0.9">0.9</option>
             <option value="1.0">1.0</option>
         </select><br>
+        <input type="checkbox" name="typeLong" value="long">Long
+        <input type="checkbox" name="typeShort" value="short" >Short<br>
+
         Date:<br> <input type="date" name="date" style="width:155px;">
         <br><br> <a href="#" class="myButton" type="buttonConfirm">Confirm</a>
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
@@ -90,29 +93,35 @@
                         <td>
                             Volume
                         </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
-                        </td>
-                        <td >
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
-                        </td>
-                        <td>
-                            Row 1
+                         <td>
+                            Lo/Sh
                         </td>
                     </tr>
                     <tr>
                         <td >
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                        <td >
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                        <td>
+                            Row 1
+                        </td>
+                         <td>
+                            Row 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
                             Row 2
                         </td>
                         <td>
@@ -122,6 +131,9 @@
                             Row 2
                         </td>
                         <td >
+                            Row 2
+                        </td>
+                        <td>
                             Row 2
                         </td>
                         <td>
@@ -150,6 +162,9 @@
                         <td>
                             Row 3
                         </td>
+                        <td>
+                            Row 3
+                        </td>
                     </tr>
                     <tr>
                         <td >
@@ -168,6 +183,9 @@
                             Row 4
                         </td>
                         <td>
+                            Row 4
+                        </td>
+                         <td>
                             Row 4
                         </td>
                     </tr>

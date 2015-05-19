@@ -28,7 +28,7 @@
     <h1>Deal History</h1>
 <div style="float: left;">
     <p>
-        Symbol:<br>
+        Symbol:
         <select>
             <option value="EURUSD" >EUR/USD</option>
             <option value="USDJPY">USD/JPY</option>
@@ -50,9 +50,8 @@
         <br>
         Profit/Loss:<br> <input type="number" name="profitOrLoss">
         <br>
-        Date:<br> <input type="date" name="date" style="width:155px;">
-        <br>
-        Volume:<br>
+
+        Volume:
         <select>
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
@@ -65,6 +64,10 @@
             <option value="0.9">0.9</option>
             <option value="1.0">1.0</option>
         </select><br>
+        <input type="checkbox" name="typeLong" value="long">Long
+        <input type="checkbox" name="typeShort" value="short" >Short<br>
+         Date:<br> <input type="date" name="date" style="width:155px;">
+        <br>
         Remarks:<br> <input type="text" name="remarks">
         <br>
         Snap Shot:<br> <input type="file" name="snapShot" style="width:155px;" >
@@ -105,6 +108,9 @@
                             Volume
                         </td>
                         <td>
+                           Lo/Sh
+                        </td>
+                        <td>
                             Remark
                         </td>
                     </tr>
@@ -133,6 +139,9 @@
                          <td>
                             Row 1
                         </td>
+                        <td>
+                            Row 1
+                        </td>
                     </tr>
                     <tr>
                         <td >
@@ -159,6 +168,9 @@
                         <td>
                             Row 2
                         </td>
+                        <td>
+                            Row 2
+                        </td>
                     </tr>
                     <tr>
                         <td >
@@ -185,6 +197,9 @@
                         <td>
                             Row 3
                         </td>
+                        <td>
+                            Row 3
+                        </td>
                     </tr>
                     <tr>
                         <td >
@@ -206,6 +221,9 @@
                             Row 4
                         </td>
                         <td>
+                            Row 4
+                        </td>
+                         <td>
                             Row 4
                         </td>
                          <td>
