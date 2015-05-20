@@ -21,7 +21,7 @@ def calculatingRisk(symbolInput,enterPri,stopPri,vol,type):#(type=1-long, type=0
             risk=sumPoint*vol*priceForIndex[x]
     '''
     risk=sumPoint*vol*priceForPoint
-    
+
     return risk
 
 #print(calculatingRisk("SP",100,90,1,1))
