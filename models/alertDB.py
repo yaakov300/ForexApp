@@ -9,3 +9,4 @@ class Alert(ndb.Model):
     stoplose = ndb.StringProperty()
     takeprofit = ndb.StringProperty()
     volume = ndb.StringProperty()
+    date = ndb.StringProperty()

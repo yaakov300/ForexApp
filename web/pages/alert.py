@@ -2,6 +2,7 @@ __author__ = 'Oshri&Yaacov'
 
 from google.appengine.ext.webapp import template
 from models.alertDB import Alert
+import time
 import webapp2
 
 class AlertHandler(webapp2.RequestHandler):
@@ -16,10 +17,11 @@ class AlertHandler(webapp2.RequestHandler):
         stopLosedb = self.request.get('stopLose')
         takeProfitdb = self.request.get('takeProfit')
         volumedb = self.request.get('volume')
-
-        alert = Alert(symbol=symboldb ,enterprice=enterPricedb,takeprofit=stopLosedb,volume=volumedb )
+        dateDB = time.strftime("%x")
+        alert = Alert(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                      ,volume=volumedb, date=dateDB)
         alert.put()
-        self.response.write("wow")
+
 
 app = webapp2.WSGIApplication([
     ('/alert', AlertHandler)
