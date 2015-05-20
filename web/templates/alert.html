@@ -22,9 +22,10 @@
 <div id="light" class="white_content">
     <h1>Enter alert</h1>
 <div style="float: left;">
-    <p>
+    <form method="post">
+            <p>
         Symbol:
-        <select>
+        <select name="symbol">
             <option value="EURUSD" >EUR/USD</option>
             <option value="USDJPY">USD/JPY</option>
             <option value="USDCAN">USD/CAN</option>
@@ -44,7 +45,7 @@
         Take Profit: <br><input type="number"   name="takeProfit">
         <br>
         Volume:
-        <select>
+        <select name="volume">
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
             <option value="0.3">0.3</option>
@@ -60,12 +61,12 @@
         <input type="checkbox" name="typeShort" value="short" >Short<br>
 
         Date:<br> <input type="date" name="date" style="width:155px;">
-        <br><br> <a href="#" class="myButton" type="buttonConfirm">Confirm</a>
+        <br><br>  <input name="" type="submit" value="Add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
-    </p>
+          </p>
+      </form>
     </div>
-
 </div>
 
 <!-- the background for popup-->
