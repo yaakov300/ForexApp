@@ -13,15 +13,24 @@
     </ul>
 {% endblock %}
 {% block main %}
-<form method="post">
+
+<!--
+<form name="Form" onsubmit="return validateForm()" method="post">
+-->
+<form name="Form"  method="post">
+
     <h2>
-        User-Name:<br> <input type="text" name="userName">
+        User-Name:<br> <input type="text" name="userName" maxlength="30" required>
         <br>
-        Password:<br> <input type="password"   name="password">
+        First-Name:<br> <input type="text" name="firstName" maxlength="30" required>
         <br>
-        Confirm-Password:<br> <input type="password"   name="confPass">
+        Last-Name:<br> <input type="text" name="lastName" maxlength="30" required>
         <br>
-        Mail:<br> <input type="text" name="mail">
+        Password:<br> <input type="password"   name="password" maxlength="30" required>
+        <br>
+        Confirm-Password:<br> <input type="password"   name="confPass" maxlength="30" required>
+        <br>
+        Mail:<br> <input type="text" name="mail" maxlength="50" required>
         <br><br>
 
         <input name="" type="submit" value="Sign Up">
