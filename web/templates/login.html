@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ block.super }}
+
+{% endblock %}
+{% block header %}
+    <ul>
+      <li><a href="home" >Home</a></li>
+      <li><a href="risk">risk calculation</a></li>
+      <li><a href="history">purchease history</a></li>
+      <li><a href="alert">alerts</a></li>
+      <li><a href="support">support</a></li>
+      <li><a href="about">about</a></li>
+    </ul>
+{% endblock %}
+{% block main %}
+
+
+<form name="Form"  method="post">
+
+        User Name:
+        <br> <input type="text" name="userName" maxlength="30" required><br>
+
+        Password:<br><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+        if(this.checkValidity()) form.pwd2.pattern = this.value;">
+        <br>
+        <br><br>
+
+        <input name="" type="submit" value="Sign in">
+
+
+
+
+    </form>
+{% endblock %}
