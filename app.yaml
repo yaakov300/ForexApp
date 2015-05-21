@@ -27,6 +27,9 @@ handlers:
 - url: /register
   script: web.pages.register.app
 
+- url: /login
+  script: web.pages.login.app
+
 - url: /alert
   script: web.pages.alert.app
 
