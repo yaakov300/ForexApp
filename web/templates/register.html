@@ -25,10 +25,16 @@
         <br>
         Last-Name:<br> <input type="text" name="lastName" maxlength="30" required>
         <br>
-        Password:<br> <input type="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"
-                onchange="Form.confPass.pattern = this.value;"  maxlength="30" required>
+        Password:<br> <input type="password"  required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"
+         title="Password must contain at least 6 characters, including UPPER/lowercase and numbers"
+         onchange="this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+            if(this.checkValidity()) form.confPass.pattern = this.value;"  maxlength="30" >
         <br>
-        Confirm-Password:<br> <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="confPass" maxlength="30" required>
+        Confirm-Password:<br> <input type="password"  name="confPass"
+          title="Please enter the same Password as above"  maxlength="30"
+            required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password" onchange="
+            this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
+
         <br>
         Mail:<br> <input type="text" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
         <br><br>
