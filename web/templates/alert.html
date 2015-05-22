@@ -99,98 +99,31 @@
                             Lo/Sh
                         </td>
                     </tr>
+                  {% for a in alerts %}
                     <tr>
                         <td >
-                            Row 1
+                            {{ a.date }}
                         </td>
                         <td>
-                            Row 1
+                           {{ a.symbol }}
                         </td>
                         <td>
-                            Row 1
+                            {{ a.enterprice }}
                         </td>
                         <td >
-                            Row 1
+                            {{ a.stoplose }}
                         </td>
                         <td>
-                            Row 1
+                            {{ a.takeprofit }}
                         </td>
                         <td>
-                            Row 1
+                          {{ a.volume }}
                         </td>
                          <td>
                             Row 1
                         </td>
                     </tr>
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td >
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                         <td>
-                            Row 4
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
 {% endblock %}

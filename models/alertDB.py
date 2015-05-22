@@ -10,3 +10,7 @@ class Alert(ndb.Model):
     takeprofit = ndb.StringProperty()
     volume = ndb.StringProperty()
     date = ndb.StringProperty()
+
+    @staticmethod
+    def getalerts():
+        return Alert.query()
