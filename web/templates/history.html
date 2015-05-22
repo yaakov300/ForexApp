@@ -27,9 +27,10 @@
 <div id="light" class="white_content">
     <h1>Deal History</h1>
 <div style="float: left;">
+    <form method="post">
     <p>
         Symbol:
-        <select>
+        <select name ="symbol">
             <option value="EURUSD" >EUR/USD</option>
             <option value="USDJPY">USD/JPY</option>
             <option value="USDCAN">USD/CAN</option>
@@ -42,17 +43,17 @@
             <option value="GOLD">GOLD</option>
              <option value="C.OIL">C.OIL</option>
         </select><br>
-        Eatery Price:<br> <input type="number" name="enterPrice">
+        Eatery Price:<br> <input type="number" name="enterPrice" required>
         <br>
-        Stop Lose:<br> <input type="number"   name="stopLose">
+        Stop Lose:<br> <input type="number"   name="stopLose" required>
         <br>
-        Take Profit:<br> <input type="number"   name="takeProfit">
+        Take Profit:<br> <input type="number"   name="takeProfit" required>
         <br>
-        Profit/Loss:<br> <input type="number" name="profitOrLoss">
+        Profit/Loss:<br> <input type="number" name="profitOrLoss" required>
         <br>
 
         Volume:
-        <select>
+        <select name="volume">
             <option value="0.1">0.1</option>
             <option value="0.2">0.2</option>
             <option value="0.3">0.3</option>
@@ -66,16 +67,17 @@
         </select><br>
         <input type="radio" name="type" value="long" checked>Long
         <input type="radio" name="type" value="short" >Short<br>
-         Date:<br> <input type="date" name="date" style="width:155px;">
+         Date:<br> <input type="date" name="date" style="width:155px;" required>
         <br>
         Remarks:<br> <input type="text" name="remarks">
         <br>
         Snap Shot:<br> <input type="file" name="snapShot" style="width:155px;" >
         <br><br>
-        <a href="#" class="myButton" type="buttonConfirm">Confirm</a>
+        <input name="" type="submit" value="add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
     </p>
+    </form>
     </div>
 </div>
 
@@ -114,122 +116,38 @@
                             Remark
                         </td>
                     </tr>
+                    {% for h in histories %}
                     <tr>
                         <td >
-                            Row 1
+                            {{ h.date}}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.symbol }}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.enterprice }}
                         </td>
                         <td >
-                            Row 1
+                            {{ h.stoplose }}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.takeprofit }}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.profitorloss }}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.volume }}
                         </td>
                          <td>
-                            Row 1
+                            {{ h.lstype }}
                         </td>
                         <td>
-                            Row 1
+                            {{ h.remarks }}
                         </td>
+
                     </tr>
-                    <tr>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td >
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                        <td>
-                            Row 2
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td >
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                        <td>
-                            Row 3
-                        </td>
-                    </tr>
-                    <tr>
-                        <td >
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td >
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                        <td>
-                            Row 4
-                        </td>
-                         <td>
-                            Row 4
-                        </td>
-                         <td>
-                            Row 4
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </table>
             </div>
 {% endblock %}
