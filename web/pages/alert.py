@@ -19,7 +19,8 @@ class AlertHandler(webapp2.RequestHandler):
                 "enterprice": a.enterprice,
                 "stoplose": a.stoplose,
                 "takeprofit": a.takeprofit,
-                "volume": a.volume
+                "volume": a.volume,
+                "lstype": a.lstype
             })
 
 
@@ -33,9 +34,12 @@ class AlertHandler(webapp2.RequestHandler):
         takeProfitdb = self.request.get('takeProfit')
         volumedb = self.request.get('volume')
         dateDB = time.strftime("%x")
+        lstypeDB = self.request.get('typels')
         alert = Alert(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                      ,volume=volumedb, date=dateDB)
+                      ,volume=volumedb, date=dateDB , lstype = lstypeDB)
         alert.put()
+
+        self.redirect("/alert")
         self.redirect("/alert")
 
 

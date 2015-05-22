@@ -58,10 +58,10 @@
             <option value="1.0">1.0</option>
         </select><br>
 
-        <input type="radio" name="type" value="long" checked>Long
-        <input type="radio" name="type" value="short" >Short<br>
+        <input type="radio" name="typels" value="long" checked>Long
+        <input type="radio" name="typels" value="short" >Short<br>
 
-        Date:<br> <input type="date" name="date" style="width:155px;">
+
         <br><br>  <input name="" type="submit" value="Add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
@@ -120,7 +120,7 @@
                           {{ a.volume }}
                         </td>
                          <td>
-                            Row 1
+                            {{ a.lstype }}
                         </td>
                     </tr>
                     {% endfor %}
