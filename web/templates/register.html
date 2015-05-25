@@ -2,6 +2,10 @@
 {% block head %}
     {{ block.super }}
 
+
+<script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="application/javascript" src="/static/js/index.js"></script>
+
 {% endblock %}
 {% block header %}
     <ul>
@@ -12,11 +16,14 @@
       <li><a href="support">support</a></li>
       <li><a href="about">about</a></li>
     </ul>
+
+
+
 {% endblock %}
 {% block main %}
 
 
-<form name="Form"  method="post">
+<form name="Form" >
 
     <h2>
         User Name:<br> <input type="text" name="userName" maxlength="30" required>
@@ -25,19 +32,20 @@
         <br>
         Last Name:<br> <input type="text" name="lastName" maxlength="30" required>
         <br>
-        Password:<br><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
+        Password:<br><input  id="reg_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
         if(this.checkValidity()) form.pwd2.pattern = this.value;">
         <br>
 
-        Confirm Password:<br><input title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+        Confirm Password:<br><input  title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
         <br>
 
-        Mail:<br> <input type="text" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
+        Mail:<br> <input type="text" id="reg_email" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
+
         <br><br>
 
-        <input name="" type="submit"  class="myButton" value="Sign Up">
+        <input id="register" type="submit"  class="myButton" value="Sign Up">
         <button type="reset"  class="myButton" value="Reset">Reset</button>
     </h2>
 <br>
