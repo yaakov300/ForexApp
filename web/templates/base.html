@@ -19,7 +19,14 @@
     ">sign in</a>
 -->
 
+     {%if user%}
+    <div>Hello, {{user}}. You can <a href="/logout">logout</a> here</div>
+      {% else %}
+
+
  <a href="login">sign in</a> | <a href="register">sign up</a>
+      {%endif%}
+
 <div id="login" class="white_content">
 
 
