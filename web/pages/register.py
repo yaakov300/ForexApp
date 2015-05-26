@@ -8,39 +8,43 @@ class RegisterHandler(webapp2.RequestHandler):
     def get(self):
 
         template_params = {}
-
-        email = self.request.get('mail')
-        password = self.request.get('password')
-        user_name = self.request.get('userName')
-        first_name = self.request.get('firstName')
-        last_name = self.request.get('lastName')
-
-        user = User.query(User.username == user_name).get()
-
-        if user:
-                self.error(402)
-                self.response.write('user name is already in system')
-                return
-        user = User.query(User.mail == email).get()
-
-        if user:
-                self.error(402)
-                self.response.write('Email is already in system')
-                return
-
-        user = User()
-        user.mail = email
-        user.username = user_name
-        user.set_password(password)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.put()
-
         html = template.render("web/templates/register.html", template_params)
         self.response.write(html)
 
+    def post(self):
+        flag = True
+
+        while True:
+
+            maildb = self.request.get('mail')
+            firstnamedb = self.request.get('firstName')
+            lastnamedb = self.request.get('lastName')
+            passworddb = self.request.get('pwd1')
+            usernamedb = self.request.get('userName')
+
+            user = User.query(User.username == usernamedb).get()
+            if user:
+                # self.error(403)
+                 self.response.write('user name is already exists ')
+                 flag = False
+
+            user = User.query(User.mail == maildb).get()
+            if user:
+              #  self.error(403)
+                self.response.write('Email is already exists ')
+                flag = False
+
+            if flag == True:
+                break
+
+        user = User(username=usernamedb, mail=maildb,  first_name=firstnamedb, last_name=lastnamedb)
+        user.set_password(passworddb)
+        user.put()
+
         self.response.set_cookie('our_token', str(user.key.id()))
         self.response.write(json.dumps({'status':'OK'}))
+
+        self.redirect("/home")
 
 app = webapp2.WSGIApplication([
     ('/register', RegisterHandler)
