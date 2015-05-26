@@ -1,36 +1,36 @@
 {
-	"minSP":{"price":50}
-	"NSDQ":{"price":20}
-	"DAX":{"price":25}
-	"GOLD":{"price":100}
-	"C.OIL":{"price":500}
+	"minSP":{"price":50,"step":0.25}
+	"NSDQ":{"price":,"step":0.25}
+	"DAX":{"price":25,"step":0.50}
+	"GOLD":{"price":100,"step":0.01}
+	"C.OIL":{"price":500,"step":0.01}
 
-	"EUR/USD":{"price":1000}
-	"USD/JPY":{"price":100}
-	"USD/CAN":{"price":1000}
-	"GBP/USD":{"price":1000}
-	"AUS/USD":{"price":1000}
-	"NZD/USD":{"price":1000}
-	"USD/CHF":{"price":1000}
-	"USD/ILS":{"price":1000}
+	"EUR/USD":{"price":1000,"step":0.01}
+	"USD/JPY":{"price":100,"step":0.01}
+	"USD/CAN":{"price":1000,"step":0.01}
+	"GBP/USD":{"price":1000,"step":0.01}
+	"AUS/USD":{"price":1000,"step":0.01}
+	"NZD/USD":{"price":1000,"step":0.01}
+	"USD/CHF":{"price":1000,"step":0.01}
+	"USD/ILS":{"price":1000,"step":0.01}
 
-	"EUR/AUD":{"price":1000}
-	"EUR/NZD":{"price":1000}
-	"EUR/CHF":{"price":1000}
-	"EUR/JPY":{"price":100}
-	"EUR/CAD":{"price":1000}
-	"EUR/GBP":{"price":1000}
+	"EUR/AUD":{"price":1000,"step":0.01}
+	"EUR/NZD":{"price":1000,"step":0.01}
+	"EUR/CHF":{"price":1000,"step":0.01}
+	"EUR/JPY":{"price":100,"step":0.01}
+	"EUR/CAD":{"price":1000,"step":0.01}
+	"EUR/GBP":{"price":1000,"step":0.01}
 
-	"GBP/AUD":{"price":1000}
-	"GBP/JPY":{"price":100}
-	"GBP/NZD":{"price":1000}
+	"GBP/AUD":{"price":1000,"step":0.01}
+	"GBP/JPY":{"price":100,"step":0.01}
+	"GBP/NZD":{"price":1000,"step":0.01}
 
-	"AUD/NZD":{"price":1000}
-	"AUD/CAD":{"price":1000}
+	"AUD/NZD":{"price":1000,"step":0.01}
+	"AUD/CAD":{"price":1000,"step":0.01}
 
-	"NZD/JPY":{"price":100}
-	"NZD/CAD":{"price":1000}
+	"NZD/JPY":{"price":100,"step":0.01}
+	"NZD/CAD":{"price":1000,"step":0.01}
 
-	"CAD/JPY":{"price":100}
-	"CHF/JPY":{"price":100}
+	"CAD/JPY":{"price":100,"step":0.01}
+	"CHF/JPY":{"price":100,"step":0.01}
 }
