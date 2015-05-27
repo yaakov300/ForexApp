@@ -20,9 +20,7 @@
                 <div id="demo"></div>
                 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
                 <script>
-                    console.log("out");
                     $.getJSON('static/json/symbols.json', function(data) {
-                      console.log("in");
                       var out="<select>";
                       var i;
                       for(i = 0; i <data.symbol.length; i++)
@@ -33,36 +31,23 @@
                       document.getElementById("demo").innerHTML = out;
                   });
                 </script>
-                <!-- <script>
-                    var text = '{"symbol":[{"name":"minSP","price":50,"step":0.25 },{"name":"NSDQ","price":20,"step":0.25 },' +
-                            '{"name":"DAX","price":25,"step":0.5}]}';
-                     var out="<select>";
-                     var i;
-                     obj = JSON.parse(text);
-                     for(i = 0; i <obj.symbol.length; i++)
-                     {
-                            out += "<option>"+obj.symbol[i].name +"</option>";
-                     }
-                     out+="</select>";
-                     document.getElementById("demo").innerHTML = out;
-                 </script>-->
             </td>
         </tr>
         <tr>
             <td>Enter Price: </td>
-            <td> <input type="number" name="enterPrice"></td>
+            <td> <input type="number" name="enterPrice" id='enterPrice'></td>
             <td><a href="#" class="myButton" type="buttonConfirm">get price</a>
 
         </tr>
 
         <tr>
             <td>Stop Lose:</td>
-            <td><input type="number"   name="stopPrice"></td>
+            <td><input type="number" name="stopPrice" id='stopPrice'></td>
         </tr>
          <tr>
             <td>Volume:</td>
             <td>
-                <select>
+                <select id='volume'>
                 <option value="0.1">0.1</option>
                 <option value="0.2">0.2</option>
                 <option value="0.3">0.3</option>
@@ -79,15 +64,34 @@
         <tr>
             <td></td>
             <td>
-                <input type="radio" name="type" value="long" checked>Long
-                <input type="radio" name="type" value="short" >Short<br>
+                <input type="radio" name="type"  id="long" checked>Long
+                <input type="radio" name="type"  >Short<br>
         </tr>
         <tr>
             <td></td>
-            <td><br> <a href="#" class="myButton" type="buttonConfirm">get risk!</a>
+            <td><br> <a  onclick="calculateRisk();" class="myButton" type="submit">get risk!</a>
 
         </tr>
     </table>
 
-Your risk is: 100$
+<script>
+function calculateRisk() {
+    var symbol;
+    var enterPrice = parseFloat(document.getElementById("enterPrice").value);
+    var stopLose = parseFloat(document.getElementById("stopPrice").value);
+    var volume = parseFloat(document.getElementById("volume").value);
+    var type;
+    var risk;
+    if(document.getElementById("long").checked == true)
+        risk = enterPrice-stopLose;
+    else
+        risk = stopLose-enterPrice;
+    risk = risk*volume;
+
+    document.getElementById("resultRisk").value = risk;
+}
+</script>
+
+Your risk is:
+<output type="text" id ='resultRisk'>
 {% endblock %}
