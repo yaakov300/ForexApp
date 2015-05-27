@@ -21,7 +21,7 @@
 {% endblock %}
 {% block main %}
 
-    <form name="Form"  method="post">
+    <form name="Form" method="post" >
 
 
         <span id="signinButton" style="float:right">
@@ -36,13 +36,12 @@
         </span>
 
 
-
+        <br>
         User Name:
         <br> <input name="userName" type="text" id="login_username" maxlength="30" required><br>
 
-        Password:<br><input  id="login_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
-        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
-        if(this.checkValidity()) form.pwd2.pattern = this.value;">
+        Password:<br><input name="pwd" id="login_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
+        this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
         <br>
         <br><br>
 

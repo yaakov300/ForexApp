@@ -30,6 +30,9 @@ handlers:
 - url: /login
   script: web.pages.login.app
 
+- url: /logout
+  script: web.pages.logout.app
+
 - url: /alert
   script: web.pages.alert.app
 
