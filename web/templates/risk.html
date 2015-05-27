@@ -106,7 +106,7 @@ function calculateRisk() {
         risk = enterPrice-stopLose;
     else
         risk = stopLose-enterPrice;
-    risk = risk*volume*price;
+    risk = risk*volume;
     document.getElementById("resultRisk").value = risk;
 }
 </script>
