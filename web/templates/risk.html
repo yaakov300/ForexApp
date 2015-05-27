@@ -21,7 +21,7 @@
                 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
                 <script>
                     $.getJSON('static/json/symbols.json', function(data) {
-                      var out="<select>";
+                      var out="<select id='selectSymbol' >";
                       var i;
                       for(i = 0; i <data.symbol.length; i++)
                       {
@@ -35,14 +35,14 @@
         </tr>
         <tr>
             <td>Enter Price: </td>
-            <td> <input type="number" name="enterPrice" id='enterPrice'></td>
+            <td> <input type="number" name="enterPrice" id='enterPrice' ></td>
             <td><a href="#" class="myButton" type="buttonConfirm">get price</a>
 
         </tr>
 
         <tr>
             <td>Stop Lose:</td>
-            <td><input type="number" name="stopPrice" id='stopPrice'></td>
+            <td><input type="number" name="stopPrice" id='stopPrice' ></td>
         </tr>
          <tr>
             <td>Volume:</td>
@@ -69,29 +69,74 @@
         </tr>
         <tr>
             <td></td>
-            <td><br> <a  onclick="calculateRisk();" class="myButton" type="submit">get risk!</a>
+            <td><br> <input name type="submit" onclick="calculateRisk();" class="myButton" value="get risk!">
 
         </tr>
     </table>
 
 <script>
 function calculateRisk() {
-    var symbol;
+    var symbol= document.getElementById("selectSymbol").value;
     var enterPrice = parseFloat(document.getElementById("enterPrice").value);
     var stopLose = parseFloat(document.getElementById("stopPrice").value);
     var volume = parseFloat(document.getElementById("volume").value);
-    var type;
+    var price;
     var risk;
+
+
+    price=$.getJSON('static/json/symbols.json', function (data)
+            {
+                var price;
+                var step;
+                var i;
+                var sym = document.getElementById("selectSymbol").value;
+                for (i = 0; i < data.symbol.length; i++) {
+                    if (data.symbol[i].name == sym) {
+                        price = data.symbol[i].price;
+                        step = data.symbol[i].step;
+
+                        console.log("in lop"+data.symbol[i]);
+                    }
+                }
+
+            });
+
+    console.log("out "+ price);
     if(document.getElementById("long").checked == true)
         risk = enterPrice-stopLose;
     else
         risk = stopLose-enterPrice;
-    risk = risk*volume;
-
+    risk = risk*volume*price;
     document.getElementById("resultRisk").value = risk;
 }
 </script>
 
+ <script>
+ function saerchInJson()
+ {
+
+            $.getJSON('static/json/symbols.json', function (data)
+            {
+                var price;
+                var step;
+                var i;
+                var sym = document.getElementById("selectSymbol").value;
+                var retunVal
+                for (i = 0; i < data.symbol.length; i++) {
+                    if (data.symbol[i].name == sym) {
+                        price = data.symbol[i].price;
+                        step = data.symbol[i].step;
+                        retunVal = new Array(price, step)
+                    }
+                }
+                document.getElementById("saerchJson").value = price;
+                return;
+            });
+    }
+ </script>
+
+
 Your risk is:
-<output type="text" id ='resultRisk'>
+<output type="text" id ='resultRisk'><br>
+
 {% endblock %}
