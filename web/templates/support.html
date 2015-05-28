@@ -17,11 +17,11 @@
 <h2>Comment us</h2>
 <form method="post">
     <h2>
-        Name:<br> <input type="text" name="name">
+        Name:<br> <input type="text" name="name" maxlength="30" required>
         <br>
-        Mail:<br> <input type="text"   name="mail">
+        Mail:<br> <input type="text" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
         <br>
-        comment:<br> <input type="text" name="comment">
+        comment:<br> <input type="text" name="comment" required>
         <br><br>
 
         <input name="" type="submit" value="Send">
