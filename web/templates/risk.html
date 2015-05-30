@@ -20,29 +20,48 @@
                 <div id="demo"></div>
                 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
                 <script>
+                    var my_json_obj;
                     $.getJSON('static/json/symbols.json', function(data) {
                       var out="<select id='selectSymbol' >";
                       var i;
+                      my_json_obj = data;
+
                       for(i = 0; i <data.symbol.length; i++)
                       {
                           out += "<option>"+data.symbol[i].name +"</option>";
                       }
+
                       out+="</select>";
                       document.getElementById("demo").innerHTML = out;
                   });
+
+                    function getStep(inputID)
+                    {
+                        var selectSymbol= document.getElementById("selectSymbol").value;
+                        var step;
+                        for (i=0; i<my_json_obj.symbol.length; i++)
+                       {
+                           if (my_json_obj.symbol[i].name==selectSymbol)
+                           {
+                               step=my_json_obj.symbol[i].step;
+                           }
+                       }
+                        document.getElementById(inputID).step = step;
+                    }
+
                 </script>
             </td>
         </tr>
         <tr>
             <td>Enter Price: </td>
-            <td> <input type="number" name="enterPrice" id='enterPrice' ></td>
+            <td> <input type="number" name="enterPrice" id='enterPrice' onmousemove="getStep('enterPrice')"></td>
             <td><a href="#" class="myButton" type="buttonConfirm">get price</a>
 
         </tr>
 
         <tr>
             <td>Stop Lose:</td>
-            <td><input type="number" name="stopPrice" id='stopPrice' ></td>
+            <td><input type="number" name="stopPrice" id='stopPrice' onmousemove="getStep('stopPrice')" ></td>
         </tr>
          <tr>
             <td>Volume:</td>
@@ -76,67 +95,33 @@
 
 <script>
 function calculateRisk() {
-    var symbol= document.getElementById("selectSymbol").value;
+    var selectSymbol= document.getElementById("selectSymbol").value;
     var enterPrice = parseFloat(document.getElementById("enterPrice").value);
     var stopLose = parseFloat(document.getElementById("stopPrice").value);
     var volume = parseFloat(document.getElementById("volume").value);
     var price;
     var risk;
+    var i;
+
+   for (i=0; i<my_json_obj.symbol.length; i++)
+   {
+       if (my_json_obj.symbol[i].name==selectSymbol)
+       {
+           price=my_json_obj.symbol[i].price;
+       }
+   }
 
 
-    price=$.getJSON('static/json/symbols.json', function (data)
-            {
-                var price;
-                var step;
-                var i;
-                var sym = document.getElementById("selectSymbol").value;
-                for (i = 0; i < data.symbol.length; i++) {
-                    if (data.symbol[i].name == sym) {
-                        price = data.symbol[i].price;
-                        step = data.symbol[i].step;
-
-                        console.log("in lop"+data.symbol[i]);
-                    }
-                }
-
-            });
-
-    console.log("out "+ price);
     if(document.getElementById("long").checked == true)
         risk = enterPrice-stopLose;
     else
         risk = stopLose-enterPrice;
-    risk = risk*volume;
-    document.getElementById("resultRisk").value = risk;
+    risk = risk*volume*price;
+
+    document.getElementById("resultRisk").value = risk.toFixed(3)+"$";
 }
 </script>
 
- <script>
- function saerchInJson()
- {
-
-            $.getJSON('static/json/symbols.json', function (data)
-            {
-                var price;
-                var step;
-                var i;
-                var sym = document.getElementById("selectSymbol").value;
-                var retunVal
-                for (i = 0; i < data.symbol.length; i++) {
-                    if (data.symbol[i].name == sym) {
-                        price = data.symbol[i].price;
-                        step = data.symbol[i].step;
-                        retunVal = new Array(price, step)
-                    }
-                }
-                document.getElementById("saerchJson").value = price;
-                return;
-            });
-    }
- </script>
-
-
 Your risk is:
 <output type="text" id ='resultRisk'><br>
-
 {% endblock %}
