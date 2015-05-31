@@ -43,6 +43,8 @@
 
         Mail:<br> <input type="text" id="reg_email" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
 
+        <br><br><input type="checkbox" name="terms" required>Do you confirm our </input>
+        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Terms And Conditions?</a>
         <br><br>
 
         <input id="register" type="submit"  class="myButton" value="Sign Up">
@@ -50,5 +52,22 @@
     </h2>
 <br>
     </form>
+
+
+<!--the popup-->
+    <div id="light" class="white_content">
+    <h1>Terms And Conditions</h1>
+        <div style="float: left;">
+
+                line<br>
+                line<br>
+                line<br>
+                line<br>
+                <br>
+
+                <a href = "javascript:void(0)" class="myButton" onclick ="document.getElementById('light').style.display='none';
+                   document.getElementById('fade').style.display='none'">Close</a>
+        </div>
+    </div>
 
 {% endblock %}
