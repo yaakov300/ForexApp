@@ -22,13 +22,15 @@ def getCommoditiesResults(COM):
     data = request.json()#["query"]["results"]["quote"]["Ask"]
     return data, request.status_code
 
+'''
+FROM="usd"
+TO="cad"
+response, status_code = getCurrencyResults(FROM,TO)
+print("The Rate of "+FROM+"/"+TO+ ": "+response["query"]["results"]["rate"]["Rate"])
+'''
 
-#FROM="usd"
-#TO="cad"
-#response, status_code = getCurrencyResults(FROM,TO)
-#print("The Rate of "+FROM+"/"+TO+ ": "+response["query"]["results"]["rate"]["Rate"])
-
-
-#COM="GCK15.CMX"
-#response, status_code = getCommoditiesResults(COM)
-#print ("The Rate of "+COM+": "+response["query"]["results"]["quote"]["Ask"])
+'''
+COM="GCK15.CMX"
+response, status_code = getCommoditiesResults(COM)
+print ("The Rate of "+COM+": "+response["query"]["results"]["quote"]["Ask"])
+'''
