@@ -17,8 +17,6 @@ class RegisterHandler(webapp2.RequestHandler):
         while True:
 
             maildb = self.request.get('mail')
-            firstnamedb = self.request.get('firstName')
-            lastnamedb = self.request.get('lastName')
             passworddb = self.request.get('pwd1')
             usernamedb = self.request.get('userName')
 
@@ -37,7 +35,7 @@ class RegisterHandler(webapp2.RequestHandler):
             if flag == True:
                 break
 
-        user = User(username=usernamedb, mail=maildb,  first_name=firstnamedb, last_name=lastnamedb)
+        user = User(username=usernamedb, mail=maildb)
         user.set_password(passworddb)
         user.put()
 

@@ -2,9 +2,9 @@
 {% block head %}
     {{ block.super }}
 
-<script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!--<script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="application/javascript" src="/static/js/index.js"></script>
-
+-->
 
 {% endblock %}
 {% block header %}
@@ -28,10 +28,6 @@
     <h2>
         User Name:<br> <input type="text" name="userName" maxlength="30" required>
         <br>
-        First Name:<br> <input type="text" name="firstName" maxlength="30" required>
-        <br>
-        Last Name:<br> <input type="text" name="lastName" maxlength="30" required>
-        <br>
         Password:<br><input  id="reg_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
         if(this.checkValidity()) form.pwd2.pattern = this.value;">
@@ -43,7 +39,7 @@
 
         Mail:<br> <input type="text" id="reg_email" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
 
-        <br><br><input type="checkbox" name="terms" required>Do you confirm our </input>
+        <br><br><input type="checkbox" name="terms" required>Do you confirm our
         <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Terms And Conditions?</a>
         <br><br>
 
@@ -65,7 +61,7 @@
                 line<br>
                 <br>
 
-                <a href = "javascript:void(0)" class="myButton" onclick ="document.getElementById('light').style.display='none';
+                <a href = "javascript:void(0)" class="myButton"  onclick ="document.getElementById('light').style.display='none';
                    document.getElementById('fade').style.display='none'">Close</a>
         </div>
     </div>
