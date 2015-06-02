@@ -6,6 +6,10 @@
 <title>ForexApp</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet"  type="text/css" href="../static/css/EliteCircle.css"/>
+
+<script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="application/javascript" src="/static/js/index.js"></script>
+
     {% endblock %}
 </head>
 <body>
@@ -20,12 +24,12 @@
 -->
 
      {%if user%}
-    <div>Hello, {{user}}. You can <a href="/logout">logout</a> here</div>
-      {% else %}
+          <div>Hello, {{user}}. You can <a href="/logout">logout</a> here</div>
 
-
- <a href="login">sign in</a> | <a href="register">sign up</a>
-      {%endif%}
+     {% else %}
+              <div>Hello, {{user}}. You can <a href="/logout">logout</a> here</div>
+          <a href="login">sign in</a> | <a href="register">sign up</a>
+     {%endif%}
 
 <div id="login" class="white_content">
 
