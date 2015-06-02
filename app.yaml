@@ -15,6 +15,7 @@ handlers:
 - url: /static
   static_dir: web/static
 
+
 - url: /support
   script: web.pages.support.app
 
