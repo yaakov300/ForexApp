@@ -32,7 +32,7 @@
             <td>Stop Lose:</td>
             <td><input type="number" name="stopPrice" id='stopPrice' onmousemove="getStep('stopPrice')" ></td>
         </tr>
-         <tr>
+        <tr>
             <td>Volume:</td>
             <td>
                 <select id='volume'>
@@ -59,14 +59,17 @@
             <td></td>
             <td><br> <input name type="submit" onclick="calculateRisk();" class="myButton" value="get risk!">
         </tr>
-
+        </tr>
     </table>
-
+<output>
+     Warning-There may be differences in prices between <br>
+     brokers price displayed on the site. ForexApp there <br>
+     is no warranty
+</output>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="static/js/symbolslist.js"></script>
 <script src="static/js/calculaterisk.js"></script>
 Your risk is:
 <output type="text" id ='resultRisk'><br>
-<output> Warning-There may be differences in prices between brokers price displayed on the site.
-    ForexApp there is no warranty</output>
+
 {% endblock %}
