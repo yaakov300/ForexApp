@@ -76,7 +76,10 @@ function getCommodities(symbolName)
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var myArr = JSON.parse(xmlhttp.responseText);
-            document.getElementById("enterPrice").value =myArr.query.results.quote.Ask;
+            if (symbolName=="^GDAXI")
+                document.getElementById("enterPrice").value =myArr.query.results.quote.LastTradePriceOnly;
+            else
+                document.getElementById("enterPrice").value =myArr.query.results.quote.Ask;
         }
     }
     xmlhttp.open("GET", url, true);
