@@ -1,70 +1,4 @@
-{% extends "base.html" %}
-{% block head %}
-    {{ block.super }}
-{% endblock %}
-{% block header %}
-    <ul>
-      <li><a href="home">Home</a></li>
-      <li><a href="risk" id="current">risk calculation</a></li>
-      <li><a href="history">purchease history</a></li>
-      <li><a href="alert">alerts</a></li>
-      <li><a href="support">support</a></li>
-      <li><a href="about">about</a></li>
-    </ul>
-{% endblock %}
-{% block main %}
-    <table align="left" width="400">
-        <tr>
-            <td>Symbol:</td>
-            <td>
-                <div id="demo"></div>
 
-            </td>
-        </tr>
-        <tr>
-            <td>Enter Price: </td>
-            <td> <input type="number" name="enterPrice" id='enterPrice' onmousemove="getStep('enterPrice')" ></td>
-            <td><a href="#" class="myButton" onclick="getCurrentPrice();" type="buttonConfirm">get price</a>
-
-        </tr>
-
-        <tr>
-            <td>Stop Lose:</td>
-            <td><input type="number" name="stopPrice" id='stopPrice' onmousemove="getStep('stopPrice')" ></td>
-        </tr>
-         <tr>
-            <td>Volume:</td>
-            <td>
-                <select id='volume'>
-                <option value="0.1">0.1</option>
-                <option value="0.2">0.2</option>
-                <option value="0.3">0.3</option>
-                <option value="0.4">0.4</option>
-                <option value="0.5">0.5</option>
-                <option value="0.6">0.6</option>
-                <option value="0.7">0.7</option>
-                <option value="0.8">0.8</option>
-                <option value="0.9">0.9</option>
-                <option value="1.0">1.0</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <input type="radio" name="type"  id="long" checked>Long
-                <input type="radio" name="type"  >Short<br>
-        </tr>
-        <tr>
-            <td></td>
-            <td><br> <input name type="submit" onclick="calculateRisk();" class="myButton" value="get risk!">
-        </tr>
-
-    </table>
-
-<<<<<<< HEAD
-
-<script>
 function calculateRisk() {
     var selectSymbol= document.getElementById("selectSymbol").value;
     var enterPrice = parseFloat(document.getElementById("enterPrice").value);
@@ -82,7 +16,6 @@ function calculateRisk() {
        }
    }
 
-
     if(document.getElementById("long").checked == true)
         risk = enterPrice-stopLose;
     else
@@ -90,10 +23,9 @@ function calculateRisk() {
     risk = risk*volume*price;
     risk=parseFloat(risk).toFixed(2);
 
-
-
     document.getElementById("resultRisk").value =risk +" $";
 }
+
 function getCurrentPrice()
 {
     var symbol=document.getElementById("selectSymbol").value;
@@ -117,8 +49,8 @@ function getCurrentPrice()
     {
         getCommodities(symbolName);
     }
-
 }
+
 function getCurrency(symbolName)
 {
     console.log(symbolName);
@@ -135,11 +67,12 @@ function getCurrency(symbolName)
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
+
 function getCommodities(symbolName)
 {
     var xmlhttp = new XMLHttpRequest();
-
     var url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+symbolName+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var myArr = JSON.parse(xmlhttp.responseText);
@@ -148,18 +81,5 @@ function getCommodities(symbolName)
     }
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-
 }
 
-</script>
-
-=======
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="static/js/symbolslist.js"></script>
-<script src="static/js/calculaterisk.js"></script>
->>>>>>> origin/master
-Your risk is:
-<output type="text" id ='resultRisk'><br>
-<output> Warning-There may be differences in prices between brokers price displayed on the site.
-    ForexApp there is no warranty</output>
-{% endblock %}
