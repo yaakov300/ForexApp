@@ -13,7 +13,11 @@
     </ul>
 {% endblock %}
 {% block main %}
-    <table align="left" width="400">
+
+    <table align="left" width="600" >
+        <tr>
+            <td>
+                <table align="left" width="400">
         <tr>
             <td>Symbol:</td>
             <td>
@@ -22,7 +26,7 @@
         </tr>
         <tr>
             <td>Enter Price: </td>
-            <td> <input type="number" name="enterPrice" id='enterPrice' onmousemove="getStep('enterPrice')" ></td>
+            <td> <input type="number" name="enterPrice" id='enterPrice' onmousemove="getStep('enterPrice')"></td>
             <td><a href="#" class="myButton" onclick="getCurrentPrice();" type="buttonConfirm">get price</a>
 
         </tr>
@@ -60,12 +64,21 @@
         </tr>
         </tr>
     </table>
+            </td>
 
-<output>
-     Warning-There may be differences in prices between <br>
-     brokers price displayed on the site. ForexApp there <br>
-     is no warranty
-</output>
+        </tr>
+        <tr>
+            <td>
+                <output>
+                    <br><br><br>
+                    <font size="3" >Warning</font><br>
+                    There may be differences in prices between
+                    brokers price, and price displayed on the site.<br>
+                    ForexApp there is no warranty<br>
+                </output>
+            </td>
+        </tr>
+    </table>
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="static/js/symbolslist.js"></script>
