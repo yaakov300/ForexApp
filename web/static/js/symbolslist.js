@@ -2,14 +2,14 @@ var my_json_obj;
 var global_select="minSP";
 
 $.getJSON('static/json/symbols.json', function(data) {
-    var out="<select id='selectSymbol' onchange='selectChange()' >";
+    var out="<select name='symbol' id='selectSymbol' onchange='selectChange()' >";
     var i;
 
     my_json_obj = data;
 
     for(i = 0; i <data.symbol.length; i++)
     {
-        out += "<option>"+data.symbol[i].name +"</option>";
+        out += "<option value='"+data.symbol[i].name+"'>"+data.symbol[i].name +"</option>";
     }
 
     out+="</select>";
