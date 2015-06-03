@@ -15,6 +15,8 @@ class RiskHandler(webapp2.RequestHandler):
         if user:
             template_params['user'] = user.username
 
+        if not user:
+            self.redirect('/home')
 
         html = template.render("web/templates/risk.html", template_params)
         self.response.write(html)

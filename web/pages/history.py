@@ -17,16 +17,8 @@ class HistoryHandler(webapp2.RequestHandler):
         if user:
             template_params['user'] = user.username
 
-        html = template.render("web/templates/history.html", template_params)
-        self.response.write(html)
-
-        user = None
-        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
-            user = User.check_token(self.request.cookies.get('our_token'))
-
-        template_params = {}
-        if user:
-            template_params['user'] = user.username
+        if not user:
+            self.redirect('/home')
 
         template_params['histories'] =[]
         histories = History.getHistory()

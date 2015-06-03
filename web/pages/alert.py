@@ -18,6 +18,9 @@ class AlertHandler(webapp2.RequestHandler):
         if user:
             template_params['user'] = user.username
 
+        if not user:
+            self.redirect('/home')
+
         template_params['alerts'] =[]
         alerts = Alert.getalerts()
         for a in alerts:
