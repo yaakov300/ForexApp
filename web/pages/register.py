@@ -8,13 +8,11 @@ class RegisterHandler(webapp2.RequestHandler):
     def get(self):
 
         template_params = {}
+        
         html = template.render("web/templates/register.html", template_params)
         self.response.write(html)
 
     def post(self):
-        flag = True
-
-        while True:
 
             maildb = self.request.get('mail')
             passworddb = self.request.get('pwd1')
@@ -22,27 +20,24 @@ class RegisterHandler(webapp2.RequestHandler):
 
             user = User.query(User.username == usernamedb).get()
             if user:
-                # self.error(403)
-                 self.response.write('user name is already exists ')
-                 flag = False
+                  self.error(403)
+                  self.response.write('username is already exists ')
+                  return
 
             user = User.query(User.mail == maildb).get()
             if user:
-              #  self.error(403)
+                self.error(403)
                 self.response.write('Email is already exists ')
-                flag = False
+                return
 
-            if flag == True:
-                break
+            user = User(username=usernamedb, mail=maildb)
+            user.set_password(passworddb)
+            user.put()
 
-        user = User(username=usernamedb, mail=maildb)
-        user.set_password(passworddb)
-        user.put()
+            self.response.set_cookie('our_token', str(user.key.id()))
+            self.response.write(json.dumps({'status':'OK'}))
 
-        self.response.set_cookie('our_token', str(user.key.id()))
-        self.response.write(json.dumps({'status':'OK'}))
-
-        self.redirect("/home")
+            self.redirect("/home")
 
 app = webapp2.WSGIApplication([
     ('/register', RegisterHandler)
