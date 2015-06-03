@@ -5,6 +5,9 @@ api_version: 1
 threadsafe: yes
 
 handlers:
+- url: /mail
+  script: web.pages.mai.app
+
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
@@ -14,7 +17,6 @@ handlers:
 
 - url: /static
   static_dir: web/static
-
 
 - url: /support
   script: web.pages.support.app
