@@ -17,7 +17,7 @@ class HistoryHandler(webapp2.RequestHandler):
         if user:
             template_params['user'] = user.username
 
-        html = template.render("web/templates/about.html", template_params)
+        html = template.render("web/templates/history.html", template_params)
         self.response.write(html)
 
         user = None
