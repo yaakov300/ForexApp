@@ -1,5 +1,5 @@
 
-
+from models.user import User
 from google.appengine.ext.webapp import template
 from models.alertDB import Alert
 import time
@@ -9,6 +9,14 @@ class AlertHandler(webapp2.RequestHandler):
     def get(self):
 
         template_params = {}
+
+        user = None
+        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
+            user = User.check_token(self.request.cookies.get('our_token'))
+
+        template_params = {}
+        if user:
+            template_params['user'] = user.username
 
         template_params['alerts'] =[]
         alerts = Alert.getalerts()

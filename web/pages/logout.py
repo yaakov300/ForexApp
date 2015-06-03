@@ -5,3 +5,10 @@ class LogoutHandler(webapp2.RequestHandler):
     def get(self):
         self.response.delete_cookie('our_token')
         self.redirect('/')
+
+
+
+
+app = webapp2.WSGIApplication([
+    ('/logout', LogoutHandler)
+], debug=True)

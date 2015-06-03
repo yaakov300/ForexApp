@@ -25,6 +25,7 @@ class LoginHandler(webapp2.RequestHandler):
              return
 
 
+
           self.response.set_cookie('our_token', str(user.key.id()))
           self.response.write(json.dumps({'status':'OK'}))
           self.redirect('/')
