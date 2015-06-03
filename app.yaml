@@ -10,7 +10,7 @@ handlers:
   upload: favicon\.ico
 
 - url: /
-  script: web.pages.index.app
+  script: web.pages.base.app
 
 - url: /static
   static_dir: web/static
