@@ -5,7 +5,7 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /mail
+- url: /cron
   script: web.pages.mai.app
 
 - url: /favicon\.ico

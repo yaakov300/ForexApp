@@ -1,21 +1,21 @@
 from google.appengine.ext import webapp
-from google.appengine.ext.webapp.util import run_wsgi_app
 import smtplib
 
+import webapp2
 
-class ParseXMLHandler(webapp.RequestHandler):
+class ParseXMLHandler(webapp2.RequestHandler):
     def get(self):
 
         from_addr    = 'jceforexapp@gmail.com'
-        to_addr_list = ['aviram1202@gmail.com']
-        cc_addr_list = ['aviram1202@gmail.com']
+        to_addr_list = ['yaacov300@gmail.com']
+        cc_addr_list = ['yaacov300@gmail.com']
         subject      = 'Howdy'
-        message      = 'Howdy from a python function aviram is king!!!!'
+        message      = 'Howdy from a python function aviram is slave!!!!'
         login        = 'jceforexapp'
-        password     = 'YOUfor ex'
+        password     = 'YOUforex'
         sendemail(from_addr,to_addr_list,cc_addr_list,subject,message,login,password)
 
-    def sendemail(from_addr, to_addr_list,cc_addr_list,subject, message,login, password,smtpserver='smtp.gmail.com:587'):
+def sendemail(from_addr, to_addr_list,cc_addr_list,subject, message,login, password,smtpserver='smtp.gmail.com:587'):
         header  = 'From: %s\n' % from_addr
         header += 'To: %s\n' % ','.join(to_addr_list)
         header += 'Cc: %s\n' % ','.join(cc_addr_list)
@@ -28,8 +28,9 @@ class ParseXMLHandler(webapp.RequestHandler):
         problems = server.sendmail(from_addr, to_addr_list, message)
         server.quit()
 
-
-application = webapp.WSGIApplication([('/mail', ParseXMLHandler)],debug=True)
+application = webapp.WSGIApplication([
+    ('/cron', ParseXMLHandler)
+],debug=True)
 
 
 
