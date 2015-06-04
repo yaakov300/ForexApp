@@ -22,12 +22,12 @@
     <h2>
         User Name:<br> <input type="text" name="userName" maxlength="30" required>
         <br>
-        Password:<br><input  id="reg_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
+        Password:<br><input  id="reg_password" title="Password must contain at least 4 characters" type="password" required minlength="4" name="pwd1" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
         if(this.checkValidity()) form.pwd2.pattern = this.value;">
         <br>
 
-        Confirm Password:<br><input  title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+        Confirm Password:<br><input  title="Please enter the same Password as above" type="password" required minlength="4" name="pwd2" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
         <br>
 
