@@ -22,7 +22,7 @@
 	{"name":"GBP/AUD","price":100000,"step":0.0001,"type":1,"symbolName":"GBPAUD"},
 	{"name":"GBP/JPY","price":1000,"step":0.001,"type":1,"symbolName":"GBPJPY"},
 	{"name":"GBP/NZD","price":100000,"step":0.00001,"type":1,"symbolName":"GBPNZD"},
-    {"name":"GBP/CHF","price":100000,"step":0.001,"type":1,"symbolName":"GBPCHF"},
+    {"name":"GBP/CHF","price":100000,"step":0.00001,"type":1,"symbolName":"GBPCHF"},
 	{"name":"AUD/NZD","price":100000,"step":0.00001,"type":1,"symbolName":"AUDNZD"},
 	{"name":"AUD/CAD","price":100000,"step":0.00001,"type":1,"symbolName":"AUDCAD"},
 	{"name":"NZD/JPY","price":1000,"step":0.001,"type":1,"symbolName":"NZDJPY"},
