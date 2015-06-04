@@ -5,12 +5,12 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /cron
-  script: web.pages.mai.app
-
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
+
+- url: /cron
+  script: web.pages.mai.app
 
 - url: /
   script: web.pages.base.app
