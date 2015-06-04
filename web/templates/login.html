@@ -2,11 +2,10 @@
 {% extends "base.html" %}
 {% block head %}
     {{ block.super }}
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="Jceforexapp.apps.googleusercontent.com">
 
- <script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script type="application/javascript" src="/static/js/index.js"></script>
+
+  <script type="application/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="application/javascript" src="/static/js/index.js"></script>
 
 {% endblock %}
 {% block header %}
@@ -21,23 +20,23 @@
 {% endblock %}
 {% block main %}
 
-    <form name="Form" method="post" >
 
 
 
 
+<form name="Form" method="post">
         <br>
         User Name:
         <br> <input name="userName" type="text" id="login_username" maxlength="30" required><br>
 
-        Password:<br><input name="pwd" id="login_password" title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="
+        Password:<br><input name="pwd" id="login_password" title="Password must contain at least 4 characters" type="password" required minlength="4" onchange="
         this.setCustomValidity(this.validity.patternMismatch ? this.title : '');">
         <br>
         <br><br>
 
-        <input id="login" class="myButton" type="submit" value="Sign in">
+        <input id="login_button" class="myButton" type="submit" value="Sign in">
         <button type="reset"  class="myButton"value="Reset">Reset</button>
-    </form>
 
+</form>
 
 {% endblock %}
