@@ -13,7 +13,3 @@ class cronSendMail(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/cron', cronSendMail)
 ],debug=True)
-
-
-
-
