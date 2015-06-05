@@ -16,7 +16,9 @@ class RiskHandler(webapp2.RequestHandler):
             template_params['user'] = user.username
 
         if not user:
-            self.redirect('/home')
+             template_params['noaccess'] = 'RISK CALCULATION'
+             html = template.render("web/templates/home.html", template_params)
+             self.response.write(html)
 
         html = template.render("web/templates/risk.html", template_params)
         self.response.write(html)
