@@ -24,7 +24,7 @@ def getCommoditiesResults(COM):
     data = request.json()#["query"]["results"]["quote"]["Ask"]
     return data, request.status_code
 
-def multRec():
+def multiRequests():
     with open('../web/static/json/symbols.json') as data_file:
         data = json.load(data_file)
 
@@ -52,16 +52,16 @@ def multRec():
     requestCurr = requests.get(URLCurr)
     dataCurr = requestCurr.json()#["query"]["results"]["rate"]["Rate"]
 
-    #print all Currency
-    for i in range(dataCurr["query"]["count"]):
-        print (dataCurr["query"]["results"]["rate"][i]["Rate"])
-
     #print all Commodities
     for i in range(dataComm["query"]["count"]):
         if (i!=2):
             print (dataComm["query"]["results"]["quote"][i]["Ask"])
         else:#for Dax
             print (dataComm["query"]["results"]["quote"][i]["LastTradePriceOnly"])
+
+    #print all Currency
+    for i in range(dataCurr["query"]["count"]):
+        print (dataCurr["query"]["results"]["rate"][i]["Rate"])
 
 
 
