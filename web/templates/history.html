@@ -27,7 +27,7 @@
 <div id="light" class="white_content">
     <h1>Deal History</h1>
 <div style="float: left;">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
     <p>
         Symbol:
         <div id="demo"></div>
@@ -78,6 +78,9 @@
                 <table >
                     <tr>
                         <td>
+                        </td>
+
+                        <td>
                             Date
                         </td>
                         <td>
@@ -104,9 +107,15 @@
                         <td>
                             Remark
                         </td>
+                        <td>
+                            Image
+                        </td>
                     </tr>
                     {% for h in histories %}
                     <tr>
+                        <td>
+                            <a href="edit.html" >Edit</a>
+                        </td>
                         <td >
                             {{ h.date}}
                         </td>
@@ -134,7 +143,12 @@
                         <td>
                             {{ h.remarks }}
                         </td>
-
+                        <td>
+                            <a href="">Get Image</a>
+                        </td>
+                        <td>
+                           <a href="edit.html"> <img src="../static/images/delete.png"   /> </a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </table>
