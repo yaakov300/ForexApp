@@ -113,42 +113,49 @@
                     </tr>
                     {% for h in histories %}
                     <tr>
-                        <td>
-                            <a href="edit.html" >Edit</a>
-                        </td>
-                        <td >
-                            {{ h.date}}
-                        </td>
-                        <td>
-                            {{ h.symbol }}
-                        </td>
-                        <td>
-                            {{ h.enterprice }}
-                        </td>
-                        <td >
-                            {{ h.stoplose }}
-                        </td>
-                        <td>
-                            {{ h.takeprofit }}
-                        </td>
-                        <td>
-                            {{ h.profitorloss }}
-                        </td>
-                        <td>
-                            {{ h.volume }}
-                        </td>
-                         <td>
-                            {{ h.lstype }}
-                        </td>
-                        <td>
-                            {{ h.remarks }}
-                        </td>
-                        <td>
-                            <a href="">Get Image</a>
-                        </td>
-                        <td>
-                           <a href="edit.html"> <img src="../static/images/delete.png"   /> </a>
-                        </td>
+
+                        <form action="profile">
+                            <input type="hidden" name="id" value = {{h.key}}>
+
+
+                            <td>
+                                <!--  <a href="edit.html" >Edit</a> -->
+                                <input type="submit" value="Edit"/>
+                            </td>
+                            <td >
+                                {{ h.date}}
+                            </td>
+                            <td>
+                                {{ h.symbol }}
+                            </td>
+                            <td>
+                                {{ h.enterprice }}
+                            </td>
+                            <td >
+                                {{ h.stoplose }}
+                            </td>
+                            <td>
+                                {{ h.takeprofit }}
+                            </td>
+                            <td>
+                                {{ h.profitorloss }}
+                            </td>
+                            <td>
+                                {{ h.volume }}
+                            </td>
+                             <td>
+                                {{ h.lstype }}
+                            </td>
+                            <td>
+                                {{ h.remarks }}
+                            </td>
+                            <td>
+                                <a href="">Get Image</a>
+                            </td>
+                            <td>
+                               <a href="edit.html"> <img src="../static/images/delete.png"   /> </a>
+                            </td>
+                        </form>
                     </tr>
                     {% endfor %}
                 </table>

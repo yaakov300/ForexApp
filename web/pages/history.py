@@ -27,6 +27,7 @@ class HistoryHandler(webapp2.RequestHandler):
           histories = History.getHistory()
           for h in histories:
             template_params['histories'].append({
+                "key": h.key.id(),
                 "date": h.date,
                 "symbol": h.symbol,
                 "enterprice": h.enterprice,
@@ -41,7 +42,6 @@ class HistoryHandler(webapp2.RequestHandler):
             self.response.write(html)
 
     def post(self):
-
         symboldb = self.request.get('symbol')
         enterPricedb = self.request.get('enterPrice')
         stopLosedb = self.request.get('stopLose')
