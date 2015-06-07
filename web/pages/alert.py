@@ -39,9 +39,9 @@ class AlertHandler(webapp2.RequestHandler):
                 "lstype": a.lstype
             })
 
-
-        html = template.render("web/templates/alert.html", template_params)
-        self.response.write(html)
+        if user:
+             html = template.render("web/templates/alert.html", template_params)
+             self.response.write(html)
 
     def post(self):
         symboldb = self.request.get('symbol')

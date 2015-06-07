@@ -19,9 +19,9 @@ class RiskHandler(webapp2.RequestHandler):
              template_params['noaccess'] = 'RISK CALCULATION'
              html = template.render("web/templates/home.html", template_params)
              self.response.write(html)
-
-        html = template.render("web/templates/risk.html", template_params)
-        self.response.write(html)
+        else:
+         html = template.render("web/templates/risk.html", template_params)
+         self.response.write(html)
 
 app = webapp2.WSGIApplication([
     ('/risk', RiskHandler)

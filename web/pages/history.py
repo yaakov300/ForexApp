@@ -22,9 +22,10 @@ class HistoryHandler(webapp2.RequestHandler):
              html = template.render("web/templates/home.html", template_params)
              self.response.write(html)
 
-        template_params['histories'] =[]
-        histories = History.getHistory()
-        for h in histories:
+        else:
+          template_params['histories'] =[]
+          histories = History.getHistory()
+          for h in histories:
             template_params['histories'].append({
                 "date": h.date,
                 "symbol": h.symbol,
@@ -36,9 +37,8 @@ class HistoryHandler(webapp2.RequestHandler):
                 "lstype": h.lstype,
                 "remarks": h.remarks
             })
-
-        html = template.render("web/templates/history.html", template_params)
-        self.response.write(html)
+            html = template.render("web/templates/history.html", template_params)
+            self.response.write(html)
 
     def post(self):
 
