@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block head %}
+    {{ block.super }}
+{% endblock %}
+{% block header %}
+    <ul>
+      <li><a href="home">Home</a></li>
+      <li><a href="risk">risk calculation</a></li>
+      <li><a href="history">purchease history</a></li>
+      <li><a href="alert">alerts</a></li>
+      <li><a href="support">support</a></li>
+      <li><a href="about" id="current">about</a></li>
+    </ul>
+{% endblock %}
+{% block main %}
+
+
+<h1>Deleate page</h1>
+
+{%  id = self.request.GET.get('id')
+    history.delete(id) %}
+
+
+
+
+
+
+
+{% endblock %}

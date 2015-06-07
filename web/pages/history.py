@@ -1,4 +1,5 @@
-__author__ = 'Oshri&Yaacov'
+
+
 import webapp2
 from google.appengine.ext.webapp import template
 from models.historyDB import History
@@ -57,6 +58,10 @@ class HistoryHandler(webapp2.RequestHandler):
                       lstype = lstypedb,avatar = avatardb)
         history.put()
         self.redirect("/history")
+
+
+
+
 
 
 app = webapp2.WSGIApplication([

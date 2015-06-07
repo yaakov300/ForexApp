@@ -114,13 +114,15 @@
                     {% for h in histories %}
                     <tr>
 
-                        <form action="profile">
-                            <input type="hidden" name="id" value = {{h.key}}>
-
-
                             <td>
                                 <!--  <a href="edit.html" >Edit</a> -->
+
+                                <form action="profile">
+                                 <input type="hidden" name="id" value = {{h.key}}/>
+
                                 <input type="submit" value="Edit"/>
+                               </form>
+
                             </td>
                             <td >
                                 {{ h.date}}
@@ -153,9 +155,19 @@
                                 <a href="">Get Image</a>
                             </td>
                             <td>
+                              <!--
                                <a href="edit.html"> <img src="../static/images/delete.png"   /> </a>
+                               -->
+
+                                 <form action="deleteROW">
+                                 <input type="hidden" name="id" value = {{h.key}}/>
+
+                                <input type="image" src="../static/images/delete.png"/>
+                               </form>
+
+
                             </td>
-                        </form>
+
                     </tr>
                     {% endfor %}
                 </table>
