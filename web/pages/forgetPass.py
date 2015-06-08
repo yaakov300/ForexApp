@@ -28,8 +28,8 @@ class ForgetPassHandler(webapp2.RequestHandler):
           sender_address ='jceforexapp@gmail.com'
           user_address = mail_forget
           print mail_forget
-          subject = 'Restore password'
-          body = 'put here link to update new password'
+          subject = 'Forget password'
+          body = ' reset password: http://youforrexapp.appspot.com/UpdatePass'
 
           mail.send_mail(sender_address,user_address, subject, body)
           html = template.render("web/templates/login.html", template_params)
