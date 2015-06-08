@@ -17,7 +17,7 @@
 {% block main %}
 
 
-<form name="Form" method="post">
+<form name="Form" style="text-align: center" method="post">
 
     <h2>
         User Name:<br> <input type="text" name="userName" maxlength="30" required>
@@ -33,7 +33,7 @@
 
         Mail:<br> <input type="text" id="reg_email" name="mail" placeholder="email@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
 
-        <br><br><input type="checkbox" name="terms" required>Do you confirm our
+        <br><br><input type="checkbox" name="terms" required> Do you confirm our
         <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">Terms of Use?</a>
         <br><br>
 
