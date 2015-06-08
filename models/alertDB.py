@@ -11,6 +11,7 @@ class Alert(ndb.Model):
     volume = ndb.StringProperty()
     date = ndb.StringProperty()
     lstype = ndb.StringProperty()
+    username = ndb.StringProperty()
 
     @staticmethod
     def getalerts():

@@ -29,6 +29,9 @@ class AlertHandler(webapp2.RequestHandler):
         template_params['alerts'] =[]
         alerts = Alert.getalerts()
         for a in alerts:
+            if user.username != a.username:
+                continue
+
             template_params['alerts'].append({
                 "date": a.date,
                 "symbol": a.symbol,
@@ -44,6 +47,11 @@ class AlertHandler(webapp2.RequestHandler):
              self.response.write(html)
 
     def post(self):
+        user = None
+        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
+            user = User.check_token(self.request.cookies.get('our_token'))
+
+
         symboldb = self.request.get('symbol')
         enterPricedb = self.request.get('enterPrice')
         stopLosedb = self.request.get('stopLose')
@@ -51,8 +59,9 @@ class AlertHandler(webapp2.RequestHandler):
         volumedb = self.request.get('volume')
         dateDB = time.strftime("%x")
         lstypeDB = self.request.get('typels')
+        userDB = user.username
         alert = Alert(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                      ,volume=volumedb, date=dateDB , lstype = lstypeDB)
+                      ,volume=volumedb, date=dateDB , lstype = lstypeDB , username = userDB)
         alert.put()
 
         self.redirect("/alert")
