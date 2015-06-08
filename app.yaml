@@ -24,6 +24,10 @@ handlers:
 - url: /risk
   script: web.pages.risk.app
 
+
+- url: /forgetPass
+  script: web.pages.forgetPass.app
+
 - url: /history
   script: web.pages.history.app
 
