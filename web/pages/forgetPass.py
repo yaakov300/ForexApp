@@ -29,7 +29,8 @@ class ForgetPassHandler(webapp2.RequestHandler):
           user_address = mail_forget
           print mail_forget
           subject = 'Forget password'
-          body = ' reset password: http://youforrexapp.appspot.com/UpdatePass'
+          username= user.username
+          body =  'hello' + username + 'reset password: http://youforrexapp.appspot.com/UpdatePass'
 
           mail.send_mail(sender_address,user_address, subject, body)
           html = template.render("web/templates/login.html", template_params)
