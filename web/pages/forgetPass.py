@@ -10,28 +10,28 @@ import json
 class ForgetPassHandler(webapp2.RequestHandler):
     def get(self):
         template_params = {}
-        html = template.render("web/templates/ForgetPass.html", template_params)
+        html = template.render("web/templates/forgetPass.html", template_params)
         self.response.write(html)
 
 
     def post(self):
         template_params = {}
-        mail_restore =  self.request.get("mail_restore")
-        user = User.query(User.mail == mail_restore).get()
+        mail_forget = self.request.get("mailforget")
+        user = User.query(User.mail == mail_forget).get()
 
         if not user:
             self.error(403)
-            self.response.write('Email is not exists ')
+            self.response.write('Email is not exists')
             return
         else:
 
-          sender_address ="jceforexapp@gmail.com>"
-          user_address = mail_restore
-          print mail_restore
-          subject ="Restore password"
-          body = "put here link to update new password "
+          sender_address ='jceforexapp@gmail.com'
+          user_address = mail_forget
+          print mail_forget
+          subject = 'Restore password'
+          body = 'put here link to update new password'
 
-          mail.send_mail(sender_address, sender_address, subject, body)
+          mail.send_mail(sender_address,user_address, subject, body)
           html = template.render("web/templates/login.html", template_params)
           self.response.write(html)
 
