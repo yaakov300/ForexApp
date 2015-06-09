@@ -8,7 +8,7 @@ class cronSendMail(webapp2.RequestHandler):
         senderadress = "aviram1202@gmail.com"
         name = "yaacov the king"
         comment = "temani is work"
-        mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address , comment)
+       #mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address , comment)
 
 app = webapp2.WSGIApplication([
     ('/cron', cronSendMail)
