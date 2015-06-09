@@ -14,12 +14,13 @@ class symbolGraph(webapp2.RequestHandler):
         self.multiRequests()
 
     def threading_minuets(self):
-        for i in range(2):
+        for i in range(10):
             threading.Timer(1*i, self.multiRequests).start()
 
 
     #this function get all price for commodities and currency from yahoo api.
     def multiRequests(self):
+        logging.info('from the thread')
         with open('../web/static/json/symbols.json') as data_file:
             data = json.load(data_file)
 
