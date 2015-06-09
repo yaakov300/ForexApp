@@ -51,7 +51,7 @@ handlers:
 - url: /home
   script: web.pages.home.app
 
-- url: /deleteROW
+- url: /deleterow
   script: web.pages.deleteROW.app
 
 - url: /(.*)
