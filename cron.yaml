@@ -1,5 +1,5 @@
 
 cron:
-- description: daily summary job
+- description: send alert
   url: /cron
-  schedule: every day 12:00
+  schedule: every 1 minutes
