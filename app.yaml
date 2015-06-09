@@ -9,14 +9,14 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /static
+  static_dir: web/static
+
 - url: /cron
-  script: web.pages.mai.app
+  script: models.symbolGraph.app
 
 - url: /
   script: web.pages.base.app
-
-- url: /static
-  static_dir: web/static
 
 - url: /support
   script: web.pages.support.app
