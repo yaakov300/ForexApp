@@ -14,6 +14,7 @@ class History(ndb.Model):
     lstype = ndb.StringProperty()
     date = ndb.StringProperty()
     remarks = ndb.StringProperty()
+    username = ndb.StringProperty()
     avatar = ndb.BlobProperty()
 
     @staticmethod

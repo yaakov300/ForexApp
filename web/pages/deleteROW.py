@@ -12,14 +12,12 @@ import webapp2
 
 
 class DeleteHandler(webapp2.RequestHandler):
+    def get(self):
+        template_params = {}
+        html = template.render("web/templates/deletROW.html", template_params)
+        self.response.write(html)
 
 
-     def delete(self,key):
-         tmp = ndb.get(key)
-         tmp.delete()
-         self.redirect("/history")
-
-
-    app = webapp2.WSGIApplication([
-    ('/deleteROW', DeleteHandler)
+app = webapp2.WSGIApplication([
+    ('/deletROW', DeleteHandler)
 ], debug=True)

@@ -27,6 +27,9 @@ class HistoryHandler(webapp2.RequestHandler):
           template_params['histories'] =[]
           histories = History.getHistory()
           for h in histories:
+            if h.username != user.username:
+                continue
+
             template_params['histories'].append({
                 "key": h.key.id(),
                 "date": h.date,
@@ -39,10 +42,14 @@ class HistoryHandler(webapp2.RequestHandler):
                 "lstype": h.lstype,
                 "remarks": h.remarks
             })
-            html = template.render("web/templates/history.html", template_params)
-            self.response.write(html)
+        html = template.render("web/templates/history.html", template_params)
+        self.response.write(html)
 
     def post(self):
+        user = None
+        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
+            user = User.check_token(self.request.cookies.get('our_token'))
+
         symboldb = self.request.get('symbol')
         enterPricedb = self.request.get('enterPrice')
         stopLosedb = self.request.get('stopLose')
@@ -52,10 +59,11 @@ class HistoryHandler(webapp2.RequestHandler):
         lstypedb = self.request.get('type')
         dateDB = self.request.get('date')
         remarksdb = self.request.get('remarks')
-        avatardb = self.request.get('snapShot')
+        userdb = user.username
+
         history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
                       ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                      lstype = lstypedb,avatar = avatardb)
+                      lstype = lstypedb, username = userdb)
         history.put()
         self.redirect("/history")
 
