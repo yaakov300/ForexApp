@@ -15,20 +15,17 @@ class AlertHandler(webapp2.RequestHandler):
             user = User.check_token(self.request.cookies.get('our_token'))
 
         template_params = {}
-        if user:
-            template_params['user'] = user.username
 
         if not user:
              template_params['noaccess'] = 'ALERTS'
              html = template.render("web/templates/home.html", template_params)
              self.response.write(html)
 
-
-
-
-        template_params['alerts'] =[]
-        alerts = Alert.getalerts()
-        for a in alerts:
+        if user:
+          template_params['user'] = user.username
+          template_params['alerts'] =[]
+          alerts = Alert.getalerts()
+          for a in alerts:
             if user.username != a.username:
                 continue
 
@@ -41,10 +38,8 @@ class AlertHandler(webapp2.RequestHandler):
                 "volume": a.volume,
                 "lstype": a.lstype
             })
-
-        if user:
-             html = template.render("web/templates/alert.html", template_params)
-             self.response.write(html)
+          html = template.render("web/templates/alert.html", template_params)
+          self.response.write(html)
 
     def post(self):
         user = None

@@ -14,7 +14,6 @@ class HistoryHandler(webapp2.RequestHandler):
         if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
             user = User.check_token(self.request.cookies.get('our_token'))
 
-        template_params = {}
         if user:
             template_params['user'] = user.username
 
@@ -42,8 +41,8 @@ class HistoryHandler(webapp2.RequestHandler):
                 "lstype": h.lstype,
                 "remarks": h.remarks
             })
-        html = template.render("web/templates/history.html", template_params)
-        self.response.write(html)
+          html = template.render("web/templates/history.html", template_params)
+          self.response.write(html)
 
     def post(self):
         user = None
