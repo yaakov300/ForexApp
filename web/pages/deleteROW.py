@@ -15,7 +15,7 @@ class DeleteHandler(webapp2.RequestHandler):
     def get(self):
         template_params = {}
         html = template.render("web/templates/deletROW.html", template_params)
-        self.response.write("hello world")
+        self.response.write('Hello world!')
 
 
 app = webapp2.WSGIApplication([

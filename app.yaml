@@ -11,6 +11,7 @@ handlers:
 
 - url: /static
   static_dir: web/static
+  application_readable: true
 
 - url: /cron
   script: models.symbolGraph.app
@@ -51,7 +52,7 @@ handlers:
 - url: /home
   script: web.pages.home.app
 
-- url: /deleterow
+- url: /deleteROW
   script: web.pages.deleteROW.app
 
 - url: /(.*)
