@@ -20,3 +20,4 @@ class History(ndb.Model):
     @staticmethod
     def getHistory():
         return History.query()
+
