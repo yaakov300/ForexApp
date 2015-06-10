@@ -26,6 +26,7 @@ class symbolGraph(webapp2.RequestHandler):
             data = json.load(data_file)
         '''
 
+
         stComm="ESM15.CME,NQM15.CME,GDAXI,GCM15.CMX,CLZ15.NYM"
         stCurr=""
         stDax=""
