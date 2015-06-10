@@ -7,7 +7,7 @@ import webapp2
 import logging
 
 
-stComm="ESM15.CME,NQM15.CME,GDAXI,GCM15.CMX,CLZ15.NYM"
+stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLZ15.NYM"
 mutex = Lock()
 class symbolGraph(webapp2.RequestHandler):
 
@@ -17,8 +17,8 @@ class symbolGraph(webapp2.RequestHandler):
 
 
     def threading_minuets(self):
-        for i in range(20):
-            t = threading.Timer(0.1*i, self.multiRequests)
+        for i in range(12):
+            t = threading.Timer(5*i, self.multiRequests)
             t.start()
             t.join()
         logging.info('end threading_minuets')
@@ -27,7 +27,7 @@ class symbolGraph(webapp2.RequestHandler):
     #this function get all price for commodities and currency from yahoo api.
     def multiRequests(self):
         logging.info('from the multiRequests')
-        URLComm="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+stComm+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+        URLComm="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+stComm+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
         requestComm = requests.get(URLComm)
         dataComm = requestComm.json()#["query"]["results"]["quote"]["Ask"]
 
