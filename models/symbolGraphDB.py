@@ -6,16 +6,15 @@ class symbolGraphDB(ndb.Model):
     DAX = ndb.StringProperty()
     GOLD = ndb.StringProperty()
     COIL = ndb.StringProperty()
-    ERU = ndb.StringProperty()
+
+    EUR = ndb.StringProperty()
     JPY = ndb.StringProperty()
     CAD = ndb.StringProperty()
     GPB = ndb.StringProperty()
     AUD = ndb.StringProperty()
-    NZE = ndb.StringProperty()
+    NZD = ndb.StringProperty()
     CHF = ndb.StringProperty()
     ILS = ndb.StringProperty()
-
-    #symbolPrice = ndb.StringProperty(repeated=True)
 
     @staticmethod
     def getsSymbolGraph():
