@@ -16,9 +16,10 @@
 {% block main %}
 
 
-<h1>Deleate History page</h1>
+<h1>Deleate Alert page</h1>
 
 {%  id = self.request.GET.get('id')
     history.delete(id) %}
+
 
 {% endblock %}

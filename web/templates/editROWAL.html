@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% block head %}
     {{ block.super }}
@@ -16,9 +15,12 @@
 {% block main %}
 
 
-<h1>Deleate History page</h1>
+<h1>Edit Alert page</h1>
 
 {%  id = self.request.GET.get('id')
-    history.delete(id) %}
+
+   <!--  history.delete(id) -->
+
+%}
 
 {% endblock %}

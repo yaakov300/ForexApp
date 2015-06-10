@@ -55,6 +55,9 @@ handlers:
 - url: /deleteROW
   script: web.pages.deleteROW.app
 
+- url: /deleteROWAL
+  script: web.pages.deleteROWAL.app
+
 - url: /editROW
   script: web.pages.editROW.app
 
