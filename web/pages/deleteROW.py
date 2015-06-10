@@ -14,10 +14,20 @@ import webapp2
 class DeleteHandler(webapp2.RequestHandler):
     def get(self):
         template_params = {}
-        html = template.render("web/templates/deletROW.html", template_params)
-        self.response.write(html)
+        id = self.request.get('id')
+        self.response.write(id)
+        histories = History.getHistory()
+
+        for h in histories:
+            self.response.write(h.key)
+            if h.key == id:
+                h.delete
+                self.response.write('a')
+
+
+       # self.redirect("/history")
 
 
 app = webapp2.WSGIApplication([
-    ('/deletROW', DeleteHandler)
+    ('/deleteROW', DeleteHandler)
 ], debug=True)
