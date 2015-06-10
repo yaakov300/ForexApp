@@ -17,11 +17,14 @@ class UpdatePassHandler(webapp2.RequestHandler):
 
     def post(self):
       username = self.request.get('userName')
+      code = self.request.get('code')
       user = User.query(User.username == username).get()
-      password = self.request.get('pwdup1')
-      user.set_password(password)
-      user.put
-      self.redirect('/login')
+
+      if user.user_code == code:
+        password = self.request.get('pwdup1')
+        user.set_password(password)
+        user.put
+        self.redirect('/login')
 
 app = webapp2.WSGIApplication([
     ('/UpdatePass', UpdatePassHandler)
