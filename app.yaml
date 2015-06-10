@@ -13,7 +13,7 @@ handlers:
   static_dir: web/static
 
 - url: /cron
-  script: models.symbolGraph.app
+  script: web.pages.symbolGraph.app
 
 - url: /
   script: web.pages.base.app
