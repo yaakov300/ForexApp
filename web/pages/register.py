@@ -2,7 +2,7 @@ from google.appengine.ext.webapp import template
 import webapp2
 import json
 from models.user import User
-
+import random
 
 class RegisterHandler(webapp2.RequestHandler):
     def get(self):
@@ -17,6 +17,8 @@ class RegisterHandler(webapp2.RequestHandler):
             maildb = self.request.get('mail')
             passworddb = self.request.get('pwd1')
             usernamedb = self.request.get('userName')
+            usercode = random.randrange(1000,9999)
+
 
             user = User.query(User.username == usernamedb).get()
             if user:
@@ -30,13 +32,12 @@ class RegisterHandler(webapp2.RequestHandler):
                 self.response.write('Email is already exists ')
                 return
 
-            user = User(username=usernamedb, mail=maildb)
+            user = User(username=usernamedb, mail=maildb,user_code=usercode)
             user.set_password(passworddb)
             user.put()
 
             self.response.set_cookie('our_token', str(user.key.id()))
             self.response.write(json.dumps({'status':'OK'}))
-
             self.redirect("/home")
 
 app = webapp2.WSGIApplication([

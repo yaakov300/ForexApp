@@ -7,7 +7,7 @@ class User(ndb.Model):
     username = ndb.StringProperty()
     mail = ndb.StringProperty()
     password = ndb.StringProperty()
-
+    user_code = ndb.IntegerProperty()
 
     @staticmethod
     def check_token(token):

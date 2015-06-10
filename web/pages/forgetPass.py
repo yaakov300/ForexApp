@@ -3,8 +3,7 @@ from google.appengine.ext.webapp import template
 from google.appengine.api import mail
 import webapp2
 from models.user import User
-import hashlib
-import json
+
 
 
 class ForgetPassHandler(webapp2.RequestHandler):
@@ -30,7 +29,8 @@ class ForgetPassHandler(webapp2.RequestHandler):
           print mail_forget
           subject = 'Forgot password or User Name?'
           username= user.username
-          body = 'hello ' + username + '\n'  +'Update new password: http://youforrexapp.appspot.com/UpdatePass'
+          code = user.user_code
+          body = 'Hello ' + username + '\n'+' Update new password here: http://youforrexapp.appspot.com/UpdatePass' + '\n use Code User:' + code
 
           mail.send_mail(sender_address,user_address, subject, body)
           html = template.render("web/templates/login.html", template_params)
