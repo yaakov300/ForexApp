@@ -90,6 +90,14 @@
                     </tr>
                   {% for a in alerts %}
                     <tr>
+                           <td>
+
+                                <form action="profile">
+                                 <input type="hidden" name="id" value = {{h.key}}/>
+                                <input type="submit" value="Edit"/>
+                               </form>
+                           </td>
+
                         <td >
                             {{ a.date }}
                         </td>
@@ -111,6 +119,15 @@
                          <td>
                             {{ a.lstype }}
                         </td>
+
+                         <td>
+
+                             <form action="deleteROW">
+                                 <input type="hidden" name="id" value = {{h.key}}/>
+                                 <input type="image" src="../static/images/delete.png"/>
+                             </form>
+                         </td>
+
                     </tr>
                     {% endfor %}
                 </table>

@@ -115,7 +115,6 @@
                     <tr>
 
                             <td>
-                                <!--  <a href="edit.html" >Edit</a> -->
 
                                 <form action="profile">
                                  <input type="hidden" name="id" value = {{h.key}}/>
@@ -155,17 +154,10 @@
                                 <a href="">Get Image</a>
                             </td>
                             <td>
-                              <!--
-                               <a href="edit.html"> <img src="../static/images/delete.png"   /> </a>
-                               -->
-
                                  <form action="deleteROW">
-                                 <input type="hidden" name="id" value = {{h.key}}/>
-
-                                <input type="image" src="../static/images/delete.png"/>
+                                  <input type="hidden" name="id" value = {{h.key}}/>
+                                  <input type="image" src="../static/images/delete.png"/>
                                </form>
-
-
                             </td>
 
                     </tr>
