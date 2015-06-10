@@ -14,7 +14,7 @@ handlers:
   application_readable: true
 
 - url: /cron
-  script: models.symbolGraph.app
+  script: web.pages.symbolGraph.app
 
 - url: /
   script: web.pages.base.app

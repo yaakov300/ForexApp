@@ -21,7 +21,7 @@ class symbolGraph(webapp2.RequestHandler):
     #this function get all price for commodities and currency from yahoo api.
     def multiRequests(self):
         logging.info('from the thread')
-        with open('../web/static/json/symbols.json') as data_file:
+        with open('static/json/symbols.json') as data_file:
             data = json.load(data_file)
 
         stComm=""
