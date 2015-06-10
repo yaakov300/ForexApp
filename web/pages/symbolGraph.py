@@ -8,6 +8,7 @@ import logging
 
 
 stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLZ15.NYM"
+stCurr="ERUUSD,JPYUSD,CADUSD,GPBUSD,AUDUSD,NZEUSD,CHFUSD,ILSUSD"
 mutex = Lock()
 class symbolGraph(webapp2.RequestHandler):
 
@@ -28,9 +29,12 @@ class symbolGraph(webapp2.RequestHandler):
     def multiRequests(self):
         logging.info('from the multiRequests')
         URLComm="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+stComm+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+        URLCurr="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%20in%20(%22"+stCurr+\
+            "%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
         requestComm = requests.get(URLComm)
         dataComm = requestComm.json()#["query"]["results"]["quote"]["Ask"]
-
+        requestCurr = requests.get(URLCurr)
+        dataCurr = requestCurr.json()#["query"]["results"]["rate"]["Rate"]
 
         sp = dataComm["query"]["results"]["quote"][0]["Ask"]
         nsd = dataComm["query"]["results"]["quote"][1]["Ask"]
