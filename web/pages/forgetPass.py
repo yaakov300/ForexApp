@@ -32,7 +32,7 @@ class ForgetPassHandler(webapp2.RequestHandler):
           code = user.user_code
           code = str(code)
 
-          body = 'Hello ' + username + '\n'+' Update new password here: http://youforrexapp.appspot.com/UpdatePass' + '\n use Code User:' + code
+          body = 'Hello ' + username + '\n'+'Update new password here: http://youforrexapp.appspot.com/UpdatePass' + '\nUse this user code:' + code
 
           mail.send_mail(sender_address,user_address, subject, body)
           html = template.render("web/templates/login.html", template_params)

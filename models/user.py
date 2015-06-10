@@ -20,7 +20,7 @@ class User(ndb.Model):
 
     def set_user_code(self,code):
         self.user_code=code
-        self.put
+        self.put()
 
     def check_password(self, password):
         if not password:
