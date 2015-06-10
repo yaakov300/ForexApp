@@ -15,17 +15,31 @@ class DeleteHandler(webapp2.RequestHandler):
     def get(self):
         template_params = {}
         id = self.request.get('id')
-        self.response.write(id)
+
+        #tmp1 = set(id.split(' '))
+
+      # id.sub('\',0)
+        id = id[:-1]
+        id = int(id)
+
         histories = History.getHistory()
 
         for h in histories:
-            self.response.write(h.key)
-            if h.key == id:
-                h.delete
-                self.response.write('a')
 
 
-       # self.redirect("/history")
+           # tmp2 = set(str(h.key.id()).split(' '))
+
+            self.response.write(id)
+            self.response.write('--')
+            self.response.write(str(h.key.id()))
+            self.response.write(',')
+            #TODO - find the right condition
+
+            if id == h.key.id():
+               h.key.delete()
+
+
+        self.redirect("/history")
 
 
 app = webapp2.WSGIApplication([
