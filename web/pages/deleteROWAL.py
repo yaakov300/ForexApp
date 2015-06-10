@@ -11,7 +11,7 @@ import webapp2
 
 
 
-class DeleteHandler(webapp2.RequestHandler):
+class DeleteAlertHandler(webapp2.RequestHandler):
     def get(self):
 
         template_params = {}
@@ -34,9 +34,9 @@ class DeleteHandler(webapp2.RequestHandler):
                h.key.delete()
 
 
-        self.redirect("/history")
+        #self.redirect("/alert")
 
 
 app = webapp2.WSGIApplication([
-    ('/deleteROW', DeleteHandler)
+    ('/deleteROWAL', DeleteAlertHandler)
 ], debug=True)
