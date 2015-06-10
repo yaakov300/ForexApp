@@ -18,6 +18,10 @@ class User(ndb.Model):
         self.password = hashlib.md5(password).hexdigest()
         self.put()
 
+    def set_user_code(self,code):
+        self.user_code=code
+        self.put
+
     def check_password(self, password):
         if not password:
             return False
