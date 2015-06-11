@@ -20,18 +20,25 @@ class UpdatePassHandler(webapp2.RequestHandler):
       code = self.request.get('code')
       code = int(code)
       newdbcode = random.randrange(1000,9999)
-      user = User.query(User.username == username).get()
 
-      if user.user_code == code:
-        password = self.request.get('pwdup1')
-        user.set_password(password)
-        user.set_user_code(newdbcode)
-        user.put
-        self.redirect('/login')
+      user = User.query(User.username == username).get()
+      if user:
+         if user.user_code == code:
+           password = self.request.get('pwdup1')
+           user.set_password(password)
+           user.set_user_code(newdbcode)
+           self.redirect('/login')
+         else:
+            template_params = {}
+            template_params['error'] = '* Wrong User Code!'
+            html = template.render("web/templates/UpdatePass.html", template_params)
+            self.response.write(html)
       else:
-       self.error(403)
-       self.response.write('Wrong User Code')
-       return
+        template_params = {}
+        template_params['error'] = '* Wrong User Name!'
+        html = template.render("web/templates/UpdatePass.html", template_params)
+        self.response.write(html)
+
 
 
 app = webapp2.WSGIApplication([
