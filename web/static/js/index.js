@@ -1,8 +1,8 @@
 
 
 $(function() {  //this is jQuery's short notation for "fire all this when page is ready"
-    $('#login_button').on('click', submitLogin);
-    $('#register_button').on('click', submitRegister);
+    $('#login').on('click', submitLogin);
+    $('#register').on('click', submitRegister);
 
 
 });
@@ -37,15 +37,15 @@ function submitLogin() {
         data:{username:username, password:password},
         success:function(data, status, xhr)
         {
-            alert('success');
+        //    alert('success');
             window.location.href = "/home";
 		},
 		error:function(xhr, status, error)
         {
-            alert('error');
-            alert(xhr.status);
-            alert(xhr.responseText);
-            console.error(xhr, status, error);
+          //  alert('error');
+           // alert(xhr.status);
+            //alert(xhr.responseText);
+           // console.error(xhr, status, error);
             window.location.href = "/login";
 
         }

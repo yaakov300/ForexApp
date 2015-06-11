@@ -14,21 +14,19 @@ class LoginHandler(webapp2.RequestHandler):
 
     def post(self):
 
-          username = self.request.get('userName')
-          password = self.request.get('pwd')
+        username = self.request.get('userName')
+        password = self.request.get('pwd')
 
-          user = User.query(User.username == username).get()
+        user = User.query(User.username == username).get()
 
-          if not user or not user.check_password(password):
-             self.error(403)
-             self.response.write('Wrong username or password')
-             return
+        if not user or not user.check_password(password):
+          self.error(403)
+          self.response.write('Wrong username or password')
+          return
 
-
-
-          self.response.set_cookie('our_token', str(user.key.id()))
-          self.response.write(json.dumps({'status':'OK'}))
-          self.redirect('/')
+        self.response.set_cookie('our_token', str(user.key.id()))
+        self.response.write(json.dumps({'status':'ok'}))
+        self.redirect('/home')
 
 
 app = webapp2.WSGIApplication([
