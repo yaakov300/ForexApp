@@ -15,6 +15,7 @@ class symbolGraphDB(ndb.Model):
     NZD = ndb.StringProperty()
     CHF = ndb.StringProperty()
     ILS = ndb.StringProperty()
+    date = ndb.StringProperty()
 
     @staticmethod
     def getsSymbolGraph():
