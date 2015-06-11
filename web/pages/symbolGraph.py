@@ -17,7 +17,6 @@ class symbolGraph(webapp2.RequestHandler):
         logging.info('from the get')
         self.threading_minuets()
 
-
     def threading_minuets(self):
         threadArr = []
         '''
