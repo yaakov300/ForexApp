@@ -7,7 +7,7 @@ import webapp2
 import logging
 
 
-stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLZ15.NYM"
+stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLN15.NYM"
 stCurr="EURUSD,JPYUSD,CADUSD,GBPUSD,AUDUSD,NZDUSD,CHFUSD,ILSUSD"
 mutex = Lock()
 class symbolGraph(webapp2.RequestHandler):
