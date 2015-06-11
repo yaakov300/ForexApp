@@ -2,5 +2,5 @@
 cron:
 - description: send alert
   url: /cron
-  schedule: every 10000 minutes
+  schedule: every 90000 minutes
   #schedule: every 1 minutes synchronized
