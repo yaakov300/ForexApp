@@ -20,6 +20,14 @@
 <form name="Form" style="text-align: center" method="post">
 
     <h1>Sign up</h1>
+
+    {%if error_userName%}
+          <div style="color: red;text-align: left;"> {{error_userName}}</div>
+    {%endif%}
+    {%if error_mail%}
+          <div style="color: red;text-align: left;"> {{error_mail}}</div>
+    {%endif%}
+
     <h2>
         User Name:<br> <input type="text" name="userName" maxlength="30" required>
         <br>
