@@ -1,6 +1,9 @@
 
 cron:
-- description: send alert
+- description: create graph
   url: /cron
   schedule: every 90000 minutes
   #schedule: every 1 minutes synchronized
+  - description: evrey 5 minutes check alert
+  url: /croncheck
+  schedule: every 90000 minutes
