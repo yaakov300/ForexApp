@@ -16,7 +16,7 @@ handlers:
 - url: /cron
   script: web.pages.symbolGraph.app
 
-  - url: /croncheck
+- url: /croncheck
   script: web.pages.checkAlert.app
 
 - url: /
