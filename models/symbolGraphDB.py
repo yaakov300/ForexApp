@@ -1,4 +1,5 @@
 from google.appengine.ext import ndb
+from decimal import Decimal
 
 class symbolGraphDB(ndb.Model):
     SP = ndb.StringProperty()
@@ -20,5 +21,46 @@ class symbolGraphDB(ndb.Model):
     @staticmethod
     def getsSymbolGraph():
         return symbolGraphDB.query()
+
+    @staticmethod
+    def getByCul(symbol):
+        array=[]
+        temp=symbolGraphDB.query()
+        for t in temp:
+            if(symbol=="minSP"):
+                value=t.SP
+            if(symbol=="NSDQ"):
+                value=t.NSD
+            if(symbol=="DAX"):
+                value=t.DAX
+            if(symbol=="GOLD"):
+                value=t.GOLD
+            if(symbol=="C.OIL"):
+                value=t.COIL
+
+            if(symbol=="EUR"):
+                value=t.EUR
+            if(symbol=="JPY"):
+                value=t.JPY
+
+            array.append(value)
+        return array
+
+    @staticmethod
+    def getCurrCROS(sFrom,sTo):
+        arrCros=[]
+
+        arrTo=symbolGraphDB.getByCul(sTo)
+        arrFrom=symbolGraphDB.getByCul(sFrom)
+
+        for x in range(len(arrTo)):
+            value=(Decimal(arrFrom[x]))/(Decimal(arrTo[x]))
+            value="{0:.2f}".format(value)
+            arrCros.append(value)
+
+        return  arrCros
+
+
+
 
 
