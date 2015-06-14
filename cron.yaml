@@ -2,4 +2,4 @@
 cron:
 - description: send alert
   url: /cron
-  schedule: every 20000 minutes
+  schedule: every 100 minutes 
