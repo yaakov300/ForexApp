@@ -20,13 +20,14 @@ class LoginHandler(webapp2.RequestHandler):
         user = User.query(User.username == username).get()
 
         if not user or not user.check_password(password):
-          self.error(403)
-          self.response.write('Wrong username or password')
-          return
-
-        self.response.set_cookie('our_token', str(user.key.id()))
-        self.response.write(json.dumps({'status':'ok'}))
-        self.redirect('/home')
+            template_params = {}
+            template_params['error'] = '* Wrong User Name or Password!'
+            html = template.render("web/templates/login.html", template_params)
+            self.response.write(html)
+        else:
+          self.response.set_cookie('our_token', str(user.key.id()))
+          self.response.write(json.dumps({'status':'ok'}))
+          self.redirect('/home')
 
 
 app = webapp2.WSGIApplication([

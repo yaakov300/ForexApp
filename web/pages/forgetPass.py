@@ -19,9 +19,10 @@ class ForgetPassHandler(webapp2.RequestHandler):
         user = User.query(User.mail == mail_forget).get()
 
         if not user:
-            self.error(403)
-            self.response.write('Email is not exists')
-            return
+            template_params['error'] = '* Email address does not exist!'
+            html = template.render("web/templates/forgetPass.html", template_params)
+            self.response.write(html)
+
         else:
 
           sender_address ='jceforexapp@gmail.com'

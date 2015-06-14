@@ -1,11 +1,12 @@
 import threading
 from models.symbolGraphDB import symbolGraphDB
 from threading import Lock
-import json  #use for create json
+
 from lib import requests   #Used for http requests
 import webapp2
 import logging
 from datetime import datetime
+import time
 
 stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLN15.NYM"
 stCurr="EURUSD,JPYUSD,CADUSD,GBPUSD,AUDUSD,NZDUSD,CHFUSD,ILSUSD"
@@ -16,14 +17,23 @@ class symbolGraph(webapp2.RequestHandler):
         logging.info('from the get')
         self.threading_minuets()
 
-
     def threading_minuets(self):
+        threadArr = []
+        '''
         for i in range(6):
-            t = threading.Timer(2*i, self.multiRequests)
-            t.start()
-            t.join()
-        logging.info('end threading_minuets')
+            t = threading.Thread(target=self.multiRequests, args=(i,))
+            threadArr.append(t)
+        '''
+        for i in range(6):
+            t = threading.Timer(10*i, self.multiRequests)
+            threadArr.append(t)
 
+        for t in threadArr:
+            t.start()
+        for t in threadArr:
+            t.join()
+
+        logging.info('end threading_minuets')
 
     #this function get all price for commodities and currency from yahoo api.
     def multiRequests(self):
@@ -56,8 +66,8 @@ class symbolGraph(webapp2.RequestHandler):
 
         mutex.acquire()
         try:
-            time = str(datetime.now())
-            symbols = symbolGraphDB(SP = sp, NSD =nsd, DAX = dax, GOLD = gold, COIL = coil,EUR=eur,JPY=jpy,CAD=cad,GPB=gpb,AUD=aud,NZD=nzd,CHF=chf,ILS=ils,date=time)
+            timeDate = str(datetime.now())
+            symbols = symbolGraphDB(SP = sp, NSD =nsd, DAX = dax, GOLD = gold, COIL = coil,EUR=eur,JPY=jpy,CAD=cad,GPB=gpb,AUD=aud,NZD=nzd,CHF=chf,ILS=ils,date=timeDate)
             symbols.put()
         finally:
             mutex.release()

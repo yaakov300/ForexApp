@@ -23,7 +23,9 @@
 <form name="Form" method="post" style="text-align: center">
 
     <h1>Sign in</h1>
-
+        {%if error%}
+          <div style="color: red;;text-align: left; "> {{error}}</div>
+        {%endif%}
         <br>
         User Name:
         <br> <input name="userName" type="text" id="login_username" maxlength="30" required><br>
