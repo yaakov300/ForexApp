@@ -25,6 +25,7 @@ class HistoryHandler(webapp2.RequestHandler):
         else:
           template_params['histories'] =[]
           histories = History.getHistory()
+
           for h in histories:
             if h.username != user.username:
                 continue
