@@ -13,15 +13,7 @@ class EditHandler(webapp2.RequestHandler):
 
     def get(self):
         template_params = {}
-
-        user = None
-        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
-            user = User.check_token(self.request.cookies.get('our_token'))
-
-        if user:
-            template_params['user'] = user.username
-
-
+        longType = True
         template_params['histories'] =[]
         histories = History.getHistory()
 
@@ -42,6 +34,7 @@ class EditHandler(webapp2.RequestHandler):
             if id == h.key.id():
                editROW = h
 
+
         template_params['histories'].append({
 
                 "key": editROW.key.id(),
@@ -58,7 +51,51 @@ class EditHandler(webapp2.RequestHandler):
         html = template.render("web/templates/editROW.html", template_params)
         self.response.write(html)
 
-        #self.redirect("/history")
+    def post(self):
+
+
+        template_params = {}
+        user = None
+
+
+
+        id = self.request.get('id')
+        id = id[:-1]
+        id = int(id)
+
+
+        if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
+            user = User.check_token(self.request.cookies.get('our_token'))
+
+        symboldb = self.request.get('symbol')
+        enterPricedb = self.request.get('enterPrice')
+        stopLosedb = self.request.get('stopLose')
+        takeProfitdb = self.request.get('takeProfit')
+        profitorlossdb = self.request.get('profitOrLoss')
+        volumedb = self.request.get('volume')
+        lstypedb = self.request.get('type')
+        dateDB = self.request.get('date')
+        remarksdb = self.request.get('remarks')
+        userdb = user.username
+
+        history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                      ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                      lstype = lstypedb, username = userdb)
+        history.put()
+
+        histories = History.getHistory()
+
+        for h in histories:
+
+            self.response.write(id)
+            self.response.write('--')
+            self.response.write(str(h.key.id()))
+            self.response.write(',')
+            #TODO - find the right condition
+
+            if id == h.key.id():
+               h.key.delete()
+        self.redirect("/history")
 
 app = webapp2.WSGIApplication([
     ('/editROW', EditHandler)

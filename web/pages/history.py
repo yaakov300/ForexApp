@@ -31,6 +31,7 @@ class HistoryHandler(webapp2.RequestHandler):
                 continue
 
             template_params['histories'].append({
+
                 "key": h.key.id(),
                 "date": h.date,
                 "symbol": h.symbol,
