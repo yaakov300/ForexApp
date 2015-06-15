@@ -67,7 +67,7 @@ class symbolGraph(webapp2.RequestHandler):
         mutex.acquire()
         try:
             timeDate = str(datetime.now())
-            symbols = symbolGraphDB(SP = sp, NSD =nsd, DAX = dax, GOLD = gold, COIL = coil,EUR=eur,JPY=jpy,CAD=cad,GPB=gpb,AUD=aud,NZD=nzd,CHF=chf,ILS=ils,date=timeDate)
+            #symbols = symbolGraphDB(SP = sp, NSD =nsd, DAX = dax, GOLD = gold, COIL = coil,EUR=eur,JPY=jpy,CAD=cad,GPB=gpb,AUD=aud,NZD=nzd,CHF=chf,ILS=ils,date=timeDate)
             symbolToCheck = {'minSP': sp, 'NSDQ': nsd, 'DAX': dax, 'GOLD': gold, 'C.OIL': coil, 'EUR': eur, 'JPY': jpy, 'CAD': cad, 'GPB': gpb, 'AUD': aud, 'NZD': nzd, 'CHF': chf, 'ILS': ils}
 
             for symbol in symbolToCheck:
@@ -75,7 +75,7 @@ class symbolGraph(webapp2.RequestHandler):
                     symbolToCheck[symbol] = float(symbolToCheck[symbol])
                 except ValueError:
                     logging.info(symbol)
-            symbols.put()
+            #symbols.put()
         finally:
             mutex.release()
         checkAlert(symbolToCheck)
@@ -93,133 +93,86 @@ def checkAlert(symbolToCheck):
         volume= a.volume
         type=a.lstype
         username=a.username
-        checkIfReached(username,symbol,enterprice,stoplose,takeprofit,type,symbolToCheck)
+        alert = checkIfReached(username,symbol,enterprice,stoplose,takeprofit,type,symbolToCheck)
+        if (alert == 'send'):
+            a.key.delete()
 
 
 def checkIfReached(username,symbol,enPrice,stLoss,taPro,type,symbolToCheck):
     userMail = getEmailByUserName(username)
     arrayMail = {'username': username, 'symbol': symbol, 'enPrice': enPrice, 'stLoss': stLoss, 'taPro': taPro, 'type': type, 'userMail': userMail}
-
+    good ="good"
+    bad = "bad"
     if (('/') in symbol):#is courrnet
-        good ="good"
-        bad = "bad"
         stfrom=symbol[0:3]
         stTo=symbol[4:7]
         if (('USD') in stfrom): #USD/***
             if (type=="long"):
                 if (1/symbolToCheck[stTo]>=taPro):
                     sendMailAlert(arrayMail,good)
-                    logging.info('***')
-                    logging.info('long good one USD/***')
-                    logging.info('***')
-                    return
+                    return 'send'
                 if(1/symbolToCheck[stTo]<=stLoss):
                     sendMailAlert(arrayMail,bad)
-                    logging.info('***')
-                    logging.info('long bad one USD/***')
-                    logging.info('***')
-                    return
+                    return 'send'
                 else:#for short
                     if (1/symbolToCheck[stTo]<=taPro):
                         sendMailAlert(arrayMail,good)
-                        logging.info('***')
-                        logging.info('short good one USD/***')
-                        logging.info('***')
-                        return
+                        return 'send'
                     if (1/symbolToCheck[stTo]>=stLoss):
                         sendMailAlert(arrayMail,bad)
-                        logging.info('***')
-                        logging.info('short bad one USD/***')
-                        logging.info('***')
-                        return
+                        return 'send'
         else:
             if (('USD') in stTo): #***/USD
                 if (type=="long"):
                     if (symbolToCheck[stfrom]>=taPro):
                          sendMailAlert(arrayMail,good)
-                         logging.info('***')
-                         logging.info('long good one ***/USD')
-                         logging.info('***')
-                         return
+                         return 'send'
                     if(symbolToCheck[stfrom]<=stLoss):
                         sendMailAlert(arrayMail,bad)
-                        logging.info('***')
-                        logging.info('long bad one ***/USD')
-                        logging.info('***')
-                        return
+                        return 'send'
                 else:#for short
                     if (symbolToCheck[stfrom]<=taPro):
                         sendMailAlert(arrayMail,good)
-                        logging.info('***')
-                        logging.info('short good one ***/USD')
-                        logging.info('***')
-                        return
+                        return 'send'
                     if (symbolToCheck[stfrom]>=stLoss):
                         sendMailAlert(arrayMail,bad)
-                        logging.info('***')
-                        logging.info('short bad one ***/USD')
-                        logging.info('***')
-                        return
+                        return 'send'
             else:   #***/***
                 if (type=="long"):
-                    if (symbolToCheck[stfrom]>=taPro):
+                    if (symbolToCheck[stfrom]/symbolToCheck[stTo]>=taPro):
                         sendMailAlert(arrayMail,good)
-                        logging.info('***')
-                        logging.info('long good one ***/***')
-                        logging.info('***')
-                        return
-                    if(symbolToCheck[stfrom]<=stLoss):
+                        return 'send'
+                    if(symbolToCheck[stfrom]/symbolToCheck[stTo]<=stLoss):
                         sendMailAlert(arrayMail,bad)
-                        logging.info('***')
-                        logging.info('long bad one ***/***')
-                        logging.info('***')
-                        return
+                        return 'send'
                 else:#for short
                     if (symbolToCheck[stfrom]/symbolToCheck[stTo]<=taPro):
                         sendMailAlert(arrayMail,good)
-                        logging.info('***')
-                        logging.info('short good one ***/***')
-                        logging.info('***')
-                        return
+                        return 'send'
                     if (symbolToCheck[stfrom]/symbolToCheck[stTo]>=stLoss):
                         sendMailAlert(arrayMail,bad)
-                        logging.info('***')
-                        logging.info('long bad one ***/***')
-                        logging.info('***')
-                        return
+                        return 'send'
     else:#is commditis
         if (type=="long"):
             if (symbolToCheck[symbol]>=taPro):
                     sendMailAlert(arrayMail,good)
-                    logging.info('***')
-                    logging.info('long good one commditis')
-                    logging.info('***')
-                    return
+                    return 'send'
             if(symbolToCheck[symbol]<=stLoss):
                     sendMailAlert(arrayMail,bad)
-                    logging.info('***')
-                    logging.info('long bad one commditis')
-                    logging.info('***')
-                    return
+                    return 'send'
         else:#for short
             if (symbolToCheck[symbol]<=taPro):
                 sendMailAlert(arrayMail,good)
-                logging.info('***')
-                logging.info('short good one commditis')
-                logging.info('***')
-                return
+                return 'send'
             if (symbolToCheck[symbol]>=stLoss):
                 sendMailAlert(arrayMail,bad)
-                logging.info('***')
-                logging.info('short bad one commditis')
-                logging.info('***')
-                return
-
+                return 'send'
+    return 'not send'
 
 def getEmailByUserName(userName):
     users = User.getUser()
     for u in users:
-        if (u.mail == userName):
+        if (u.username == userName):
             return u.mail
     return "no user"
 
@@ -227,17 +180,17 @@ def sendMailAlert(arrayMail,pofitOrLoss):
      user_address = "jceforrexapp@gmail.com"
      senderadress = arrayMail['userMail']
      name = "ForexApp"
-     comment = "hello" + arrayMail['username'] + "\n"
-     if(pofitOrLoss == 'goo'): #transaction was completed successfully
+     comment = "Hello " + arrayMail['username'] + "\n"
+     if(pofitOrLoss == "good"): #transaction was completed successfully
         comment = comment + "your The transaction was completed successfully" + "\n"
      else:#transaction was failed
         comment = comment + "your The transaction was failed" + "\n"
-     comment = comment + "\tsymbol:" + arrayMail['username'] + "\n" +\
-        "\tenterPrice:" + arrayMail['enPrice'] + "\n" +\
-        "\tstLoss:" + arrayMail['type'] + "\n" +\
-        "\ttaPro:" + arrayMail['taPro'] + "\n" +\
-        "\tstLoss:" + arrayMail['stLoss'] + "\n" +\
-        "thank you"
+     comment = comment + "\tsymbol:" + arrayMail['symbol'] + "\n" +\
+        "\tenterPrice: " + arrayMail['enPrice'] + "\n" +\
+        "\tstLoss: " + arrayMail['type'] + "\n" +\
+        "\ttaPro: " + arrayMail['taPro'] + "\n" +\
+        "\tstLoss :" + arrayMail['stLoss'] + "\n" +\
+        "thank you!"
      mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address, comment)
 
 

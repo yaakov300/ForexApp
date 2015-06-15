@@ -2,7 +2,7 @@
 cron:
 - description: create graph
   url: /cron
-  schedule: every 1000  minutes
+  schedule: every 1  minutes
   #schedule: every 1 minutes synchronized
 - description: evrey 10000 minutes check alert
   url: /croncheck
