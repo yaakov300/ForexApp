@@ -30,6 +30,7 @@ class AlertHandler(webapp2.RequestHandler):
                 continue
 
             template_params['alerts'].append({
+                "key": a.key.id(),
                 "date": a.date,
                 "symbol": a.symbol,
                 "enterprice": a.enterprice,

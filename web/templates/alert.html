@@ -65,7 +65,12 @@
 
 <div class="CSSTableGenerator" >
                 <table >
+
                     <tr>
+                         <td>
+
+                        </td>
+
                         <td>
                             Date
                         </td>
@@ -87,13 +92,14 @@
                          <td>
                             Lo/Sh
                         </td>
+
                     </tr>
                   {% for a in alerts %}
                     <tr>
                            <td>
 
-                                <form action="profile">
-                                 <input type="hidden" name="id" value = {{h.key}}/>
+                                <form action="editROWAL">
+                                 <input type="hidden" name="id" value = {{a.key}}/>
                                 <input type="submit" value="Edit"/>
                                </form>
                            </td>
@@ -123,9 +129,10 @@
                          <td>
 
                              <form action="deleteROWAL">
-                                 <input type="hidden" name="id" value = {{h.key}}/>
+                                 <input type="hidden" name="id" value = {{a.key}}/>
                                  <input type="image" src="../static/images/delete.png"/>
                              </form>
+
                          </td>
 
                     </tr>
