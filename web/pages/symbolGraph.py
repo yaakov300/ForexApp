@@ -180,17 +180,19 @@ def sendMailAlert(arrayMail,pofitOrLoss):
      user_address = "jceforrexapp@gmail.com"
      senderadress = arrayMail['userMail']
      name = "ForexApp"
-     comment = "Hello " + arrayMail['username'] + "\n"
+     comment = "Hello " + arrayMail['username'] + "\n"+"\n"
      if(pofitOrLoss == "good"): #transaction was completed successfully
-        comment = comment + "your The transaction was completed successfully" + "\n"
+        comment = comment + "Your deal was completed successfully" + "\n"
      else:#transaction was failed
-        comment = comment + "your The transaction was failed" + "\n"
+        comment = comment + "Your deal was failed" + "\n"
+
      comment = comment + "\tsymbol:" + arrayMail['symbol'] + "\n" +\
-        "\tenterPrice: " + arrayMail['enPrice'] + "\n" +\
-        "\tstLoss: " + arrayMail['type'] + "\n" +\
-        "\ttaPro: " + arrayMail['taPro'] + "\n" +\
-        "\tstLoss :" + arrayMail['stLoss'] + "\n" +\
-        "thank you!"
+        "\tEnter Price: " + arrayMail['enPrice'] + "\n" +\
+        "\tType: " + arrayMail['type'] + "\n" +\
+        "\tTake Profit: " + arrayMail['taPro'] + "\n" +\
+        "\tStop Loss:" + arrayMail['stLoss'] + "\n" +\
+        " \n"+\
+        "thank you! ForexApp"
      mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address, comment)
 
 

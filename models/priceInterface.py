@@ -77,4 +77,5 @@ COM="GCK15.CMX"
 response, status_code = getCommoditiesResults(COM)
 print ("The Rate of "+COM+": "+response["query"]["results"]["quote"]["Ask"])
 '''
+#multiRequests()
 
