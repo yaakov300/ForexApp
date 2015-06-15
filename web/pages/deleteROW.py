@@ -24,12 +24,6 @@ class DeleteHandler(webapp2.RequestHandler):
 
         for h in histories:
 
-            self.response.write(id)
-            self.response.write('--')
-            self.response.write(str(h.key.id()))
-            self.response.write(',')
-            #TODO - find the right condition
-
             if id == h.key.id():
                h.key.delete()
 
