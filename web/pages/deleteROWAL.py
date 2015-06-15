@@ -2,7 +2,7 @@ __author__ = 'valerybo'
 
 
 from google.appengine.ext.webapp import template
-from models.historyDB import History
+from models.alertDB import Alert
 from models.user import User
 
 import webapp2
@@ -20,23 +20,24 @@ class DeleteAlertHandler(webapp2.RequestHandler):
         id = id[:-1]
         id = int(id)
 
-        histories = History.getHistory()
+        alerts = Alert.getalerts()
 
-        for h in histories:
+        for a in alerts:
 
             self.response.write(id)
             self.response.write('--')
-            self.response.write(str(h.key.id()))
+            self.response.write(str(a.key.id()))
             self.response.write(',')
             #TODO - find the right condition
 
-            if id == h.key.id():
-               h.key.delete()
+            if id == a.key.id():
+                a.key.delete()
 
 
-        #self.redirect("/alert")
+        self.redirect("/alert")
 
 
 app = webapp2.WSGIApplication([
     ('/deleteROWAL', DeleteAlertHandler)
 ], debug=True)
+
