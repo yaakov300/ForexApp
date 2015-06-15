@@ -87,9 +87,9 @@ def checkAlert(symbolToCheck):
     for a in alerts:
         date= a.date
         symbol= a.symbol
-        enterprice= a.enterprice#TODO CONVERT TO FLOAT
-        stoplose=a.stoplose#TODO CONVERT TO FLOAT
-        takeprofit= a.takeprofit#TODO CONVERT TO FLOAT
+        enterprice= float(a.enterprice)
+        stoplose= float(a.stoplose)
+        takeprofit= float(a.takeprofit)
         volume= a.volume
         type=a.lstype
         username=a.username
@@ -186,10 +186,10 @@ def sendMailAlert(arrayMail,pofitOrLoss):
      else:#transaction was failed
         comment = comment + "your The transaction was failed" + "\n"
      comment = comment + "\tsymbol:" + arrayMail['symbol'] + "\n" +\
-        "\tenterPrice: " + arrayMail['enPrice'] + "\n" +\
-        "\tstLoss: " + arrayMail['type'] + "\n" +\
-        "\ttaPro: " + arrayMail['taPro'] + "\n" +\
-        "\tstLoss :" + arrayMail['stLoss'] + "\n" +\
+        "\ttype: " + arrayMail['type'] + "\n" +\
+        "\tenterPrice: " + str(arrayMail['enPrice']) + "\n" +\
+        "\ttake Profit: " + str(arrayMail['taPro']) + "\n" +\
+        "\tstop Loss: " + str(arrayMail['stLoss']) + "\n" +\
         "thank you!"
      mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address, comment)
 
