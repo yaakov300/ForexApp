@@ -30,3 +30,7 @@ class User(ndb.Model):
             return True
 
         return False
+
+    @staticmethod
+    def getUser():
+        return User.query()
