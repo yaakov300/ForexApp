@@ -572,3 +572,17 @@ input.button {
         z-index:1002;
         overflow: auto;
     }
+
+
+/***********************
+	 spiner
+************************/
+
+#cover {
+    background: url("../images/spin.gif") no-repeat scroll center center #ffffff;
+      position: absolute;
+      bottom: 0%;
+      right: 0%;
+      width: 100%;
+      height: 100%;
+}
