@@ -21,11 +21,7 @@ class symbolGraph(webapp2.RequestHandler):
 
     def threading_minuets(self):
         threadArr = []
-        '''
-        for i in range(6):
-            t = threading.Thread(target=self.multiRequests, args=(i,))
-            threadArr.append(t)
-        '''
+
         for i in range(6):
             t = threading.Timer(10*i, self.multiRequests)
             threadArr.append(t)
@@ -39,6 +35,10 @@ class symbolGraph(webapp2.RequestHandler):
 
     #this function get all price for commodities and currency from yahoo api.
     def multiRequests(self):
+        #check if alerts in not empty
+        exists = Alert.getalerts().get()
+        if exists is None: #alerts it's not empty!
+            return
         logging.info('from the multiRequests')
 
         URLComm="http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%20in%20(%22"+stComm+"%22)&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
@@ -82,25 +82,24 @@ class symbolGraph(webapp2.RequestHandler):
 
 
 def checkAlert(symbolToCheck):
-    logging.info("in croncheck")
     alerts = Alert.getalerts()
     for a in alerts:
         date= a.date
         symbol= a.symbol
-        enterprice= a.enterprice#TODO CONVERT TO FLOAT
-        stoplose=a.stoplose#TODO CONVERT TO FLOAT
-        takeprofit= a.takeprofit#TODO CONVERT TO FLOAT
+        enterprice= float(a.enterprice)
+        stoplose= float(a.stoplose)
+        takeprofit= float(a.takeprofit)
         volume= a.volume
         type=a.lstype
         username=a.username
-        alert = checkIfReached(username,symbol,enterprice,stoplose,takeprofit,type,symbolToCheck)
+        alert = checkIfReached(username,symbol,enterprice,stoplose,takeprofit,type,volume,symbolToCheck)
         if (alert == 'send'):
             a.key.delete()
 
 
-def checkIfReached(username,symbol,enPrice,stLoss,taPro,type,symbolToCheck):
+def checkIfReached(username,symbol,enPrice,stLoss,taPro,type,volume,symbolToCheck):
     userMail = getEmailByUserName(username)
-    arrayMail = {'username': username, 'symbol': symbol, 'enPrice': enPrice, 'stLoss': stLoss, 'taPro': taPro, 'type': type, 'userMail': userMail}
+    arrayMail = {'username': username, 'symbol': symbol, 'enPrice': enPrice, 'stLoss': stLoss, 'taPro': taPro, 'type': type, 'volume': volume, 'userMail': userMail}
     good ="good"
     bad = "bad"
     if (('/') in symbol):#is courrnet
@@ -177,27 +176,26 @@ def getEmailByUserName(userName):
     return "no user"
 
 def sendMailAlert(arrayMail,pofitOrLoss):
-     user_address = "jceforrexapp@gmail.com"
+     user_address = "jceforexapp@gmail.com"
      senderadress = arrayMail['userMail']
-     name = "ForexApp"
-     comment = "Hello " + arrayMail['username'] + "\n"+"\n"
+     name = "ForexApp-Alert"
+     comment = "Hello " + arrayMail['username'] + "\n\n"
      if(pofitOrLoss == "good"): #transaction was completed successfully
-        comment = comment + "Your deal was completed successfully" + "\n"
+        comment = comment + "Your transaction has been completed successfully" + "\n"
      else:#transaction was failed
-        comment = comment + "Your deal was failed" + "\n"
-
+        comment = comment + "Your transaction has been failed" + "\n"
      comment = comment + "\tsymbol:" + arrayMail['symbol'] + "\n" +\
-        "\tEnter Price: " + arrayMail['enPrice'] + "\n" +\
         "\tType: " + arrayMail['type'] + "\n" +\
-        "\tTake Profit: " + arrayMail['taPro'] + "\n" +\
-        "\tStop Loss:" + arrayMail['stLoss'] + "\n" +\
-        " \n"+\
-        "thank you! ForexApp"
-     mail.send_mail(senderadress, senderadress, "name: " + name + " mail: " + user_address, comment)
+        "\tEnter Price: " + str(arrayMail['enPrice']) + "\n" +\
+        "\tTake Profit: " + str(arrayMail['taPro']) + "\n" +\
+        "\tStop Loss: " + str(arrayMail['stLoss']) + "\n" +\
+        "\tVolume: " + str(arrayMail['volume']) + "\n\n" +\
+        "Thank you!\n  ForexApp"
+     mail.send_mail(user_address, senderadress,  name , comment)
+
 
 
 
 app = webapp2.WSGIApplication([
     ('/cron', symbolGraph)
 ],debug=True)
-
