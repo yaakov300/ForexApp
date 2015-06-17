@@ -25,7 +25,8 @@
     document.getElementById('fade').style.display='block'">add</a>
 <!--the image popup-->
 <div id="popuoimg" class="white_content">
-
+    {%  id = self.request.GET.get('id')
+    history.delete(id) %}
     <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('popuoimg').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
 </div>
@@ -159,11 +160,10 @@
                             </td>
                             <td>
 
-                                <form action="imageView">
-                                  <input type="hidden" name="img_id" value = {{h.key.urlsafe()}}/>
-                                    <input type="submit" value="getImage"/>
-                                  <!--<a href = "javascript:void(0)" class="myButton" value = {{h.key}} onclick = "document.getElementById('popuoimg').style.display='block';
-                                    document.getElementById('fade').style.display='block'">Get image</a>-->
+                                <form action="history">
+                                  <input type="hidden" name="idimage" value = {{h.key}}/>
+                                  <a href = "javascript:void(0)" class="myButton" value = {{h.key}} onclick = "document.getElementById('popuoimg').style.display='block';
+                                    document.getElementById('fade').style.display='block'">Get image</a>
                                </form>
 
                             </td>
