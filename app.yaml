@@ -62,7 +62,7 @@ handlers:
   script: web.pages.deleteROWAL.app
 
 - url: /editROW
-  script: web.pages.editROW.app
+  script: web.pages.editRow.app
 
 - url: /imageView
   script: web.pages.imageView.app
