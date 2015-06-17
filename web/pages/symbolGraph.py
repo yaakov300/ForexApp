@@ -185,7 +185,7 @@ def sendMailAlert(arrayMail,pofitOrLoss):
      else:#transaction was failed
         comment = comment + "Your transaction has been failed" + "\n"
      comment = comment + "\tsymbol:" + arrayMail['symbol'] + "\n" +\
-        "\tType: " + arrayMail['type'] + "\n" +\
+        "\tType: " + str(arrayMail['type']) + "\n" +\
         "\tEnter Price: " + str(arrayMail['enPrice']) + "\n" +\
         "\tTake Profit: " + str(arrayMail['taPro']) + "\n" +\
         "\tStop Loss: " + str(arrayMail['stLoss']) + "\n" +\

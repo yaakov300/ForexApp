@@ -20,7 +20,7 @@ def calculatingRisk(symbolInput,enterPri,stopPri,vol,type):#(type=1-long, type=0
         if (symbol2[x]==symbolInput):
             risk=sumPoint*vol*priceForIndex[x]
     '''
-    risk=sumPoint*vol*priceForPoin t
+    risk=sumPoint*vol*priceForPoint
 
     return risk
 
