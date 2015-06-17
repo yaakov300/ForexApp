@@ -15,12 +15,63 @@
 {% block main %}
 
 
-<h1>Edit Alert page</h1>
+<form method="post" enctype="multipart/form-data">
+{% for a in alerts %}
 
-{%  id = self.request.GET.get('id')
+        Symbol:
+        <div id="edit" name = "aaa" class= {{a.symbol}}></div>
+        <br>
+        Eatery Price:<br> <input type="number" name="enterPrice" value = {{ a.enterprice }}  required>
+        <br>
+        Stop Lose:<br> <input type="number"   name="stopLose" value = {{ a.stoplose }}  required>
+        <br>
+        Take Profit:<br> <input type="number"   name="takeProfit" value = {{ a.takeprofit }} required>
+        <br>
+        Volume:
+        <select name="volume">
+            <option value="0.1">0.1</option>
+            <option value="0.2">0.2</option>
+            <option value="0.3">0.3</option>
+            <option value="0.4">0.4</option>
+            <option value="0.5">0.5</option>
+            <option value="0.6">0.6</option>
+            <option value="0.7">0.7</option>
+            <option value="0.8">0.8</option>
+            <option value="0.9">0.9</option>
+            <option value="1.0">1.0</option>
+        </select><br>
 
-   <!--  history.delete(id) -->
+        {% if   a.lstype == 'long'   %}
 
-%}
+            <input type="radio" name="type" value="long" checked>Long
+            <input type="radio" name="type" value="short" >Short<br>
+
+       {% else %}
+             <input type="radio" name="type" value="long" >Long
+             <input type="radio" name="type" value="short" checked>Short<br>
+
+        {% endif %}
+
+         <!-- Date:<br> <input type="date" name="date" style="width:155px;" value= {{ a.date }} required> -->
+        <br>
+
+        Date:<br> <input  name="date" value = {{ a.date }} disabled >
+        <br>
+
+
+        <br>
+        <br>
+        <br>
+        <input name="" type="submit" class="myButton" value="edit">
+        <input type="hidden" name="id" value = {{h.key}}/>
+
+
+{% endfor %}
+
+ </form>
+
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="static/js/symbolslist.js"></script>
+
 
 {% endblock %}
