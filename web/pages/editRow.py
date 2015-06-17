@@ -41,7 +41,7 @@ class EditHandler(webapp2.RequestHandler):
                 "lstype": editROW.lstype,
                 "remarks": editROW.remarks
         })
-        html = template.render("web/templates/editROW.html", template_params)
+        html = template.render("web/templates/editRow.html", template_params)
         self.response.write(html)
 
     def post(self):
