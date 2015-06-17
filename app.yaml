@@ -64,6 +64,10 @@ handlers:
 - url: /editROW
   script: web.pages.editROW.app
 
+- url: /imageView
+  script: web.pages.imageView.app
+
+
 - url: /(.*)
   script: web.pages.home.app
 

@@ -43,8 +43,13 @@ class HistoryHandler(webapp2.RequestHandler):
                 "lstype": h.lstype,
                 "remarks": h.remarks
             })
+
+
+
           html = template.render("web/templates/history.html", template_params)
           self.response.write(html)
+
+
 
     def post(self):
         user = None
@@ -60,12 +65,13 @@ class HistoryHandler(webapp2.RequestHandler):
         lstypedb = self.request.get('type')
         dateDB = self.request.get('date')
         remarksdb = self.request.get('remarks')
+        imageDB = self.request.get('img')#cheak if add image
 
         userdb = user.username
 
         history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
                       ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                      lstype = lstypedb, username = userdb)
+                      lstype = lstypedb, username = userdb, image=imageDB)
         history.put()
         self.redirect("/history")
 

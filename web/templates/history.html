@@ -23,7 +23,14 @@
 <!--add popup-->
 <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='block';
     document.getElementById('fade').style.display='block'">add</a>
-<!--the popup-->
+<!--the image popup-->
+<div id="popuoimg" class="white_content">
+    {%  id = self.request.GET.get('id')
+    history.delete(id) %}
+    <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('popuoimg').style.display='none';
+           document.getElementById('fade').style.display='none'">Close</a>
+</div>
+<!--the add popup-->
 <div id="light" class="white_content">
     <h1>Deal History</h1>
 <div style="float: left;">
@@ -60,7 +67,8 @@
         <br>
         Remarks:<br> <input type="text" name="remarks">
         <br>
-        Snap Shot:<br> <input type="file" name="snapShot" id="snapShot" style="width:155px;" >
+        Snap Shot:<br>
+        <input type="file" name="img" id="img" style="width:155px;">
         <br><br>
         <input name="" type="submit" class="myButton" value="add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
@@ -151,7 +159,13 @@
                                 {{ h.remarks }}
                             </td>
                             <td>
-                                <a href="">Get Image</a>
+
+                                <form action="history">
+                                  <input type="hidden" name="idimage" value = {{h.key}}/>
+                                  <a href = "javascript:void(0)" class="myButton" value = {{h.key}} onclick = "document.getElementById('popuoimg').style.display='block';
+                                    document.getElementById('fade').style.display='block'">Get image</a>
+                               </form>
+
                             </td>
                             <td>
                                  <form action="deleteROW">
