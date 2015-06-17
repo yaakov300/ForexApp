@@ -37,7 +37,7 @@ class EditAlertHandler(webapp2.RequestHandler):
                 "takeprofit": editROW.takeprofit,
                 "volume": editROW.volume,
                 "lstype": editROW.lstype,
-                "date": editROW.date,
+                "date": editROW.date
 
         })
         html = template.render("web/templates/editROWAL.html", template_params)

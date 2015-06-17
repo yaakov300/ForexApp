@@ -40,6 +40,7 @@ class EditHandler(webapp2.RequestHandler):
                 "volume": editROW.volume,
                 "lstype": editROW.lstype,
                 "remarks": editROW.remarks
+
         })
         html = template.render("web/templates/editRow.html", template_params)
         self.response.write(html)
