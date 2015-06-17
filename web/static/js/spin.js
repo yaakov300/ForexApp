@@ -1,3 +1,4 @@
-$(window).load(function(){
-    $('#cover').fadeOut(1000);
+$(window).load(function()
+{
+     $('#cover').fadeOut(1000);
 })
