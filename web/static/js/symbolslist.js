@@ -15,6 +15,20 @@ $.getJSON('static/json/symbols.json', function(data) {
     out+="</select>";
     document.getElementById("demo").innerHTML = out;
 });
+$.getJSON('static/json/symbols.json', function(data) {
+    var out="<select name='symbol' id='selectSymbol' onchange='selectChange()' >";
+    var i;
+    my_json_obj = data;
+
+    out += "<option value='"+document.getElementById("edit").className+"'>"+document.getElementById("edit").className+"</option>";
+    for(i = 0; i <data.symbol.length; i++)
+    {
+        out += "<option value='"+data.symbol[i].name+"'>"+data.symbol[i].name +"</option>";
+    }
+
+    out+="</select>";
+    document.getElementById("edit").innerHTML = out;
+});
 
 function selectChange()
 {
