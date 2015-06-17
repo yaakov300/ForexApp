@@ -15,6 +15,7 @@ $.getJSON('static/json/symbols.json', function(data) {
     out+="</select>";
     document.getElementById("demo").innerHTML = out;
 });
+
 $.getJSON('static/json/symbols.json', function(data) {
     var out="<select name='symbol' id='selectSymbol' onchange='selectChange()' >";
     var i;
@@ -29,7 +30,6 @@ $.getJSON('static/json/symbols.json', function(data) {
     out+="</select>";
     document.getElementById("edit").innerHTML = out;
 });
-
 function selectChange()
 {
     global_select= document.getElementById("selectSymbol").value;
