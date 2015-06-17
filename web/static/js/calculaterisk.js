@@ -8,6 +8,18 @@ function calculateRisk() {
     var risk;
     var i;
 
+
+    if (document.getElementById("enterPrice").value==""||document.getElementById("stopPrice").value=="")
+    {
+        document.getElementById("resultRisk").value =""
+        document.getElementById("fieldEmpty").value ="Please complete all fields "
+        return;
+    }
+    else
+    {
+      document.getElementById("fieldEmpty").value =""
+    }
+
    for (i=0; i<my_json_obj.symbol.length; i++)
    {
        if (my_json_obj.symbol[i].name==selectSymbol)
