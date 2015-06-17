@@ -60,6 +60,7 @@ class HistoryHandler(webapp2.RequestHandler):
         lstypedb = self.request.get('type')
         dateDB = self.request.get('date')
         remarksdb = self.request.get('remarks')
+
         userdb = user.username
 
         history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
@@ -67,6 +68,7 @@ class HistoryHandler(webapp2.RequestHandler):
                       lstype = lstypedb, username = userdb)
         history.put()
         self.redirect("/history")
+
 
 
 

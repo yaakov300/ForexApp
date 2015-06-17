@@ -21,3 +21,4 @@ class History(ndb.Model):
     def getHistory():
         return History.query()
 
+
