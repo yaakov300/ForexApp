@@ -4,22 +4,28 @@ var global_select="minSP";
 $.getJSON('static/json/symbols.json', function(data) {
     var out="<select name='symbol' id='selectSymbol' onchange='selectChange()' >";
     var i;
-
     my_json_obj = data;
 
+    var nameSelected=document.getElementById("edit").className;
+    var optionSelect="";
+    global_select=nameSelected;
+
+    //out += "<option value='"+document.getElementById("edit").className+"'>"+document.getElementById("edit").className+"</option>";
     for(i = 0; i <data.symbol.length; i++)
     {
-        out += "<option value='"+data.symbol[i].name+"'>"+data.symbol[i].name +"</option>";
+        if (data.symbol[i].name==nameSelected)
+            optionSelect="selected";
+
+        out += "<option value='"+data.symbol[i].name+"'"+ optionSelect+">"+data.symbol[i].name +"</option>";
+        optionSelect="";
     }
 
     out+="</select>";
-    document.getElementById("demo").innerHTML = out;
+    document.getElementById("edit").innerHTML = out;
 });
 function selectChange()
 {
     global_select= document.getElementById("selectSymbol").value;
-    document.getElementById("enterPrice").value ="";
-    document.getElementById("stopPrice").value ="";
 }
 
 function getStep(inputID)

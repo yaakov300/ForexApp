@@ -23,7 +23,7 @@
         Symbol:
         <div id="edit" name = "aaa" class= {{h.symbol}} ></div>
         <br>
-        Enter Price:<br> <input type="number" name="enterPriceHist" id='enterPriceHisEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('enterPriceHisEdit')" value = {{ h.enterprice }}   required>
+        Enter Price:<br> <input type="number" name="enterPrice" id='enterPriceHisEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('enterPriceHisEdit')" value = {{ h.enterprice }}   required>
         <br>
         Stop Lose:<br> <input type="number"   name="stopLose"  id='stPriceHisEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('stPriceHisEdit')" value = {{ h.stoplose }} required>
         <br>
@@ -74,7 +74,7 @@
  </form>
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="static/js/symbolslist.js"></script>
+<script src="static/js/symbolslistEdit.js"></script>
 
 
 {% endblock %}
