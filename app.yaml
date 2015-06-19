@@ -70,6 +70,8 @@ handlers:
 - url: /imageView
   script: web.pages.imageView.app
 
+- url: /handlerImage
+  script: web.pages.handlerImage.app
 
 - url: /(.*)
   script: web.pages.home.app

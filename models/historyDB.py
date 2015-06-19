@@ -15,7 +15,7 @@ class History(ndb.Model):
     date = ndb.StringProperty()
     remarks = ndb.StringProperty()
     username = ndb.StringProperty()
-    image = ndb.BlobProperty()
+    avatar = ndb.BlobProperty()
 
     @staticmethod
     def getHistory():

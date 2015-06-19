@@ -1,9 +1,11 @@
-from google.appengine.ext import ndb
+#from google.appengine.ext import ndb
 from models.historyDB import History
-from google.appengine.ext.webapp import template
+#from google.appengine.api import images
+#from google.appengine.ext.webapp import template
+import logging
 
-import cgi
-import urllib
+#import cgi
+#import urllib
 import webapp2
 
 class imageView(webapp2.RequestHandler):
@@ -12,28 +14,19 @@ class imageView(webapp2.RequestHandler):
         id = self.request.get('img_id')
         id = id[:-1]
         id = int(id)
+        logging.info("start")
         histories = History.getHistory()
+        self.response.out.write('<html><body>')
         for h in histories:
             if id == h.key.id():
+                self.response.out.write('<p>take one</p>')
                 id_img = h.key.urlsafe()
 
-        #id = self.request.get('img_id')
-        self.response.out.write('<html><body>')
-        self.response.out.write('<div><img src="/img?img_id=%s"></img></div>' %id_img)
-        self.response.out.write('</html></body>')
 
-class Image(webapp2.RequestHandler):
-    def get(self):
-        img_key = ndb.Key(urlsafe=self.request.get('id_img'))
-        image = img_key.get()
-        if image.image:
-            self.response.headers['Content-Type'] = 'image/png'
-            self.response.out.write(image.image)
-        else:
-            self.response.out.write('No image')
-# [END image_handler]
+        self.response.out.write('<div><img src="/handlerImage?img_id=%s"></img></div>' %
+                                   id_img)
+        self.response.out.write('</html></body>')
 
 app = webapp2.WSGIApplication([
     ('/imageView', imageView),
-    ('/img', Image),
 ], debug=True)
