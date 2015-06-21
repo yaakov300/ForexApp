@@ -76,10 +76,6 @@
                 <table >
 
                     <tr>
-                         <td>
-
-                        </td>
-
                         <td>
                             Date
                         </td>
@@ -101,18 +97,16 @@
                          <td>
                             Lo/Sh
                         </td>
+                        <td>
+                            Edit
+                        </td>
+                        <td>
+                            Delete
+                        </td>
 
                     </tr>
                   {% for a in alerts %}
                     <tr>
-                           <td>
-
-                                <form action="editROWAL">
-                                 <input type="hidden" name="id" value = {{a.key}}/>
-                                <input type="submit" value="Edit"/>
-                               </form>
-                           </td>
-
                         <td >
                             {{ a.date }}
                         </td>
@@ -134,7 +128,13 @@
                          <td>
                             {{ a.lstype }}
                         </td>
+                        <td>
 
+                                <form action="editROWAL">
+                                 <input type="hidden" name="id" value = {{a.key}}/>
+                                <input type="submit" value="Edit"/>
+                               </form>
+                        </td>
                          <td>
 
                              <form action="deleteROWAL">
@@ -143,7 +143,6 @@
                              </form>
 
                          </td>
-
                     </tr>
                     {% endfor %}
                 </table>

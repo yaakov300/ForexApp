@@ -92,9 +92,6 @@
                 <table >
                     <tr>
                         <td>
-                        </td>
-
-                        <td>
                             Date
                         </td>
                         <td>
@@ -124,19 +121,16 @@
                         <td>
                             Image
                         </td>
+                        <td>
+                            Edit
+                        </td>
+                        <td>
+                            Delete
+                        </td>
                     </tr>
                     {% for h in histories %}
                     <tr>
 
-                            <td>
-
-                                <form action="editROW">
-                                 <input type="hidden" name="id" value = {{h.key}}/>
-
-                                <input type="submit" value="Edit"/>
-                               </form>
-
-                            </td>
                             <td >
                                 {{ h.date}}
                             </td>
@@ -173,6 +167,12 @@
                                     document.getElementById('fade').style.display='block'">Get image</a>-->
                                 </form>
 
+                            </td>
+                            <td>
+                                <form action="editROW">
+                                     <input type="hidden" name="id" value = {{h.key}}/>
+                                     <input type="submit" value="Edit"/>
+                               </form>
                             </td>
                             <td>
                                  <form action="deleteROW">
