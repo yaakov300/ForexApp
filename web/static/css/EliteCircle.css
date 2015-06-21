@@ -598,7 +598,8 @@ input.button {
 	cursor:pointer;
 	color:#f3a251;
 	font-family:Arial;
-	font-size:19px;
+    font-weight:bold;
+	font-size:12px;
 	padding:3px 6px;
 	text-decoration:none;
 	text-shadow:0px -1px 0px #ffffff;
