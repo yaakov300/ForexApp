@@ -69,10 +69,14 @@ class HistoryHandler(webapp2.RequestHandler):
         imageDB = self.request.get('img')#cheak if add image
 
         userdb = user.username
-
-        history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                      ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                      lstype = lstypedb, username = userdb, avatar=imageDB)
+        try:
+            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                          ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                          lstype = lstypedb, username = userdb, avatar=imageDB)
+        except:
+            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                          ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                          lstype = lstypedb, username = userdb)
         history.put()
         self.redirect("/history")
 
