@@ -20,7 +20,7 @@
 
 
       <!--spiner: (pot this were you want )-->
-<div id="cover"></div>
+
 <!---------->
 
 
@@ -76,10 +76,11 @@
         Snap Shot:<br>
         <input type="file" name="img" id="img" style="width:155px;">
         <br><br>
-        <input name="" type="submit" class="myButton" value="add">
+        <input id = "button-upload" name="" type="submit" class="myButton" value="add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
     </p>
+        <div id="cover" class="cover" style="display:none;"></div>
     </form>
     </div>
 </div>
@@ -188,6 +189,13 @@
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="static/js/symbolslist.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#button-upload').click(function() {
+        $('#cover').show();
+    });
+});
+</script>
 {% endblock %}
 <!--
 {% block sidebar %}
