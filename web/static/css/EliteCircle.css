@@ -578,7 +578,7 @@ input.button {
 	 spiner
 ************************/
 
-#cover {
+.cover {
     background: url("../images/spinner/2.GIF") no-repeat scroll center center;
       position: absolute;
       bottom: 0%;

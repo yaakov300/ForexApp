@@ -43,6 +43,7 @@ class AlertHandler(webapp2.RequestHandler):
           self.response.write(html)
 
     def post(self):
+        self.response.write('<div id="cover"></div>')
         user = None
         if self.request.cookies.get('our_token'):    #the cookie that should contain the access token!
             user = User.check_token(self.request.cookies.get('our_token'))

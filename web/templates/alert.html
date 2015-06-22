@@ -17,7 +17,7 @@
 
 
      <!--spiner: (pot this were you want )-->
-<div id="cover"></div>
+
 <!---------->
 
 
@@ -30,7 +30,9 @@
 <!--the popup-->
 <div id="light" class="white_content">
     <h1>Enter alert</h1>
+
 <div style="float: left;">
+
     <form method="post">
             <p>
         Symbol:
@@ -60,16 +62,19 @@
         <input type="radio" name="typels" value="short" >Short<br>
 
 
-        <br><br>  <input name="" type="submit"  class="myButton" value="Add">
+        <br><br>  <input name="" type="submit"  class="myButton" value="Add" id="button-upload">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
            document.getElementById('fade').style.display='none'">Close</a>
           </p>
+        <div id="cover" class="cover" style="display:none;"></div>
       </form>
     </div>
 </div>
 
 <!-- the background for popup-->
-<div id="fade" class="black_overlay"></div>
+<div id="fade" class="black_overlay">
+
+</div>
 <br><br>
 
 <div class="CSSTableGenerator" >
@@ -150,6 +155,13 @@
 
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="static/js/symbolslist.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#button-upload').click(function() {
+        $('#cover').show();
+    });
+});
+</script>
 {% endblock %}
 
 <!--
