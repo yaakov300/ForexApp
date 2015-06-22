@@ -41,7 +41,8 @@ class HistoryHandler(webapp2.RequestHandler):
                 "profitorloss":h.profitorloss,
                 "volume": h.volume,
                 "lstype": h.lstype,
-                "remarks": h.remarks
+                "remarks": h.remarks,
+                "img_src_url": "/handlerImage?img_id="+h.key.urlsafe()
             })
 
 

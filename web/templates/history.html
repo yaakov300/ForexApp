@@ -4,7 +4,6 @@
 {% block head %}
 
     {{ block.super }}
-
 {% endblock %}
 {% block header %}
     <ul>
@@ -28,12 +27,7 @@
 <!--add popup-->
 <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='block';
     document.getElementById('fade').style.display='block'">add</a>
-<!--the image popup-->
-<div id="popuoimg" class="white_content">
 
-    <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('popuoimg').style.display='none';
-           document.getElementById('fade').style.display='none'">Close</a>
-</div>
 <!--the add popup-->
 <div id="light" class="white_content">
 
@@ -160,13 +154,26 @@
                                 {{ h.remarks }}
                             </td>
                             <td>
+                                <!--small image-->
 
-                                <form action="imageView">
+    	                            <a href = "javascript:void(0)" onclick = "document.getElementById('popuoimg').style.display='block';document.getElementById('fade').style.display='block'">
+                                        <img src={{ h.img_src_url }} width="60" height="40">
+                                    </a>
+
+
+                                <!--image popup-->
+                                <div id="popuoimg" class="popup_image_white_content">
+                                    <img src={{ h.img_src_url }} width="450" height="300">
+                                    <br>
+                                    <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('popuoimg').style.display='none';
+                                        document.getElementById('fade').style.display='none'">Close</a>
+                                </div>
+                                <!--<form action="imageView">
                                   <input type="hidden" name="img_id" value = {{h.key}}/>
                                     <input name="" type="submit"  class="myButtoEdit" value="Image">
-                                  <!--<a href = "javascript:void(0)" class="myButton" value = {{h.key}} onclick = "document.getElementById('popuoimg').style.display='block';
-                                    document.getElementById('fade').style.display='block'">Get image</a>-->
-                                </form>
+                                  &lt;!&ndash;<a href = "javascript:void(0)" class="myButton" value = {{h.key}} onclick = "document.getElementById('popuoimg').style.display='block';
+                                    document.getElementById('fade').style.display='block'">Get image</a>&ndash;&gt;
+                                </form>-->
 
                             </td>
                             <td>
