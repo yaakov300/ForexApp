@@ -71,7 +71,7 @@ class HistoryHandler(webapp2.RequestHandler):
 
         history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
                       ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                      lstype = lstypedb, username = userdb, image=imageDB)
+                      lstype = lstypedb, username = userdb, avatar=imageDB)
         history.put()
         self.redirect("/history")
 
