@@ -157,7 +157,14 @@
                                 <!--small image-->
 
     	                            <a href = "javascript:void(0)" onclick = "document.getElementById('popuoimg').style.display='block';document.getElementById('fade').style.display='block'">
-                                        <img src={{ h.img_src_url }} width="60" height="40">
+                                        <!--<div style="position: relative; left: 0; top: 0;">
+                                            <img src="a.jpg" style="position: relative; top: 0; left: 0;"/>
+                                            <img src="b.jpg" style="position: absolute; top: 30px; left: 70px;"/>
+                                        </div>-->
+                                        <div style="position: relative; left: 0; top: 0;">
+                                            <img src={{ h.img_src_url }} width="65" height="45" style="position: relative; top: 0; left: 0;">
+                                            <img src="../static/images/magnifying_glass_icon.png"  class="no-border" width="30" height="30" style="position: absolute; top: 15px; left: 35px;" >
+                                        </div>
                                     </a>
 
 

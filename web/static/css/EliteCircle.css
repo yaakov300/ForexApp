@@ -631,3 +631,8 @@ input.button {
         overflow: auto;
 }
 
+.img_magnifying_glass_icon{
+    z-index: 1003;
+}
+
+
