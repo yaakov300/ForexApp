@@ -21,11 +21,11 @@
         Symbol:
         <div id="edit" name = "aaa" class= {{a.symbol}} ></div>
         <br>
-        Enter Price:<br> <input type="number" name="enterPrice" id='enterPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('enterPriceAlEdit')" value = {{ a.enterprice }}  required>
+        Enter Price:<br> <input type="number" name="enterPrice" id='enterPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('enterPriceAlEdit')" onload="getStep('enterPriceAlEdit')" value = {{ a.enterprice }}  required>
         <br>
-        Stop Lose:<br> <input type="number"   name="stopLose" id='stPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('stPriceAlEdit')" value = {{ a.stoplose }}  required>
+        Stop Lose:<br> <input type="number"   name="stopLose" id='stPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('stPriceAlEdit')" onload="getStep('stPriceAlEdit')" value = {{ a.stoplose }}  required>
         <br>
-        Take Profit:<br> <input type="number"   name="takeProfit" id='tkPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('tkPriceAlEdit')" value = {{ a.takeprofit }} required>
+        Take Profit:<br> <input type="number"   name="takeProfit" id='tkPriceAlEdit' style="width: 90px" min="0" max="999999"  onmousemove="getStep('tkPriceAlEdit')" onload="getStep('tkPriceAlEdit')" value = {{ a.takeprofit }} required>
         <br>
         Volume:
         <select name="volume">
