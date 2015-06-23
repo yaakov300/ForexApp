@@ -45,7 +45,7 @@
         <br>
         Take Profit:<br> <input type="number"   name="takeProfit" id='tkPriceHis' min="0" max="999999" style="width: 90px" onmousemove="getStep('tkPriceHis')" required>
         <br>
-        Profit/Loss:<br> <input type="number" name="profitOrLoss" min="-9999999" max="999999" style="width: 90px" required>
+        Profit/Loss:<br> <input type="number" name="profitOrLoss" id='profitHis' min="-9999999" max="999999" style="width: 90px" required>
         <br>
 
         Volume:
@@ -206,6 +206,11 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#button-upload').click(function() {
+        if (document.getElementById("enterPriceHis").value=="" ||document.getElementById("stPriceHis").value=="" ||
+                document.getElementById("tkPriceHis").value=="" || document.getElementById("profitHis").value=="" )
+        {
+            return;
+        }
         $('#cover').show();
     });
 });
