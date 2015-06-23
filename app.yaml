@@ -73,6 +73,11 @@ handlers:
 - url: /handlerImage
   script: web.pages.handlerImage.app
 
+- url: /error_page
+  script: web.pages.error_page.app
+
+
+
 - url: /(.*)
   script: web.pages.home.app
 

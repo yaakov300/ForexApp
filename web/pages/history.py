@@ -82,7 +82,8 @@ class HistoryHandler(webapp2.RequestHandler):
         userdb = user.username
 
         sizeimage = sys.getsizeof(imageDB)
-        if sizeimage<=1000000:   #size of image small from 1000000 byte
+        logging.info(sizeimage)
+        if sizeimage <= 1000000:   #size of image small from 1000000 byte
             try:
                 history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
                               ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
@@ -94,11 +95,8 @@ class HistoryHandler(webapp2.RequestHandler):
             history.put()
             self.redirect("/history")
         else:
-            template_params = {}
-            template_params['ImageError'] = 'ERROR - your image is greater than 1MB'
-            template_params['link'] = 'history'
-            html = template.render("web/templates/error_page.html ", template_params)
-            self.response.write(html)
+            
+            self.redirect("/error_page")
 
 
 
