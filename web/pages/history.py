@@ -29,21 +29,37 @@ class HistoryHandler(webapp2.RequestHandler):
           for h in histories:
             if h.username != user.username:
                 continue
+            if h.avatar:
+                template_params['histories'].append({
+                    "key_urlsafe": h.key.urlsafe(),
+                    "key": h.key.id(),
+                    "date": h.date,
+                    "symbol": h.symbol,
+                    "enterprice": h.enterprice,
+                    "stoplose": h.stoplose,
+                    "takeprofit": h.takeprofit,
+                    "profitorloss":h.profitorloss,
+                    "volume": h.volume,
+                    "lstype": h.lstype,
+                    "remarks": h.remarks,
+                    "img_src_url": "/handlerImage?img_id="+h.key.urlsafe()
+                })
+            else:
+                template_params['histories'].append({
+                    "key_urlsafe": h.key.urlsafe(),
+                    "key": h.key.id(),
+                    "date": h.date,
+                    "symbol": h.symbol,
+                    "enterprice": h.enterprice,
+                    "stoplose": h.stoplose,
+                    "takeprofit": h.takeprofit,
+                    "profitorloss":h.profitorloss,
+                    "volume": h.volume,
+                    "lstype": h.lstype,
+                    "remarks": h.remarks,
+                    "img_src_url": "../static/images/no_image.png"
+                })
 
-            template_params['histories'].append({
-                "key_urlsafe": h.key.urlsafe(),
-                "key": h.key.id(),
-                "date": h.date,
-                "symbol": h.symbol,
-                "enterprice": h.enterprice,
-                "stoplose": h.stoplose,
-                "takeprofit": h.takeprofit,
-                "profitorloss":h.profitorloss,
-                "volume": h.volume,
-                "lstype": h.lstype,
-                "remarks": h.remarks,
-                "img_src_url": "/handlerImage?img_id="+h.key.urlsafe()
-            })
 
 
 
