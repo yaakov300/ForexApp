@@ -1,10 +1,10 @@
 
-
+import sys
 import webapp2
 from google.appengine.ext.webapp import template
 from models.historyDB import History
 from models.user import User
-
+import logging
 
 class HistoryHandler(webapp2.RequestHandler):
     def get(self):
@@ -60,12 +60,8 @@ class HistoryHandler(webapp2.RequestHandler):
                     "img_src_url": "../static/images/no_image.png"
                 })
 
-
-
-
           html = template.render("web/templates/history.html", template_params)
           self.response.write(html)
-
 
 
     def post(self):
@@ -82,20 +78,27 @@ class HistoryHandler(webapp2.RequestHandler):
         lstypedb = self.request.get('type')
         dateDB = self.request.get('date')
         remarksdb = self.request.get('remarks')
-        imageDB = self.request.get('img')#cheak if add image
-
+        imageDB = self.request.get('img')
         userdb = user.username
-        try:
-            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                          ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                          lstype = lstypedb, username = userdb, avatar=imageDB)
-        except:
-            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                          ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                          lstype = lstypedb, username = userdb)
-        history.put()
-        self.redirect("/history")
 
+        sizeimage = sys.getsizeof(imageDB)
+        if sizeimage<=1000000:   #size of image small from 1000000 byte
+            try:
+                history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                              ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                              lstype = lstypedb, username = userdb, avatar=imageDB)
+            except:
+                history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                              ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                              lstype = lstypedb, username = userdb)
+            history.put()
+            self.redirect("/history")
+        else:
+            template_params = {}
+            template_params['ImageError'] = 'ERROR - your image is greater than 1MB'
+            template_params['link'] = 'history'
+            html = template.render("web/templates/error_page.html ", template_params)
+            self.response.write(html)
 
 
 

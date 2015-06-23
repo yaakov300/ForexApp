@@ -156,7 +156,7 @@
                             <td>
                                 <!--small image-->
 
-    	                            <a href = "javascript:void(0)" onclick = "document.getElementById('popuoimg').style.display='block';document.getElementById('fade').style.display='block'">
+    	                            <a href = "javascript:void(0)" onclick = "document.getElementById('{{h.key}}').style.display='block';document.getElementById('fade').style.display='block'">
                                         <!--<div style="position: relative; left: 0; top: 0;">
                                             <img src="a.jpg" style="position: relative; top: 0; left: 0;"/>
                                             <img src="b.jpg" style="position: absolute; top: 30px; left: 70px;"/>
@@ -169,10 +169,10 @@
 
 
                                 <!--image popup-->
-                                <div id="popuoimg" class="popup_image_white_content">
-                                    <img src={{ h.img_src_url }} width="450" height="300">
+                                <div id={{h.key}} class="popup_image_white_content">
+                                    <img src={{ h.img_src_url }} class="img-history">
                                     <br>
-                                    <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('popuoimg').style.display='none';
+                                    <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('{{h.key}}').style.display='none';
                                         document.getElementById('fade').style.display='none'">Close</a>
                                 </div>
                                 <!--<form action="imageView">
