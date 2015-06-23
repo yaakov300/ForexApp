@@ -20,6 +20,7 @@ function calculateRisk() {
       document.getElementById("fieldEmpty").value =""
     }
 
+
    for (i=0; i<my_json_obj.symbol.length; i++)
    {
        if (my_json_obj.symbol[i].name==selectSymbol)
@@ -61,6 +62,7 @@ function getCurrentPrice()
     {
         getCommodities(symbolName);
     }
+
 }
 
 function getCurrency(symbolName)

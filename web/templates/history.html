@@ -63,12 +63,12 @@
         </select><br>
         <input type="radio" name="type" value="long" checked>Long
         <input type="radio" name="type" value="short" >Short<br>
-         Date:<br> <input type="date" name="date" style="width:155px;" required>
+         Date:<br> <input type="date" name="date" style="width:155px;" id='dateeHis' required>
         <br>
         Remarks:<br> <input type="text" name="remarks">
         <br>
         Snap Shot:<br>
-        <input type="file" name="img" id="img" style="width:155px;">
+        <input type="file" name="img" id="img" style="width:155px;" >
         <br><br>
         <input id = "button-upload" name="" type="submit" class="myButton" value="add">
         <a href = "javascript:void(0)" class="myButton" onclick = "document.getElementById('light').style.display='none';
@@ -207,7 +207,8 @@
 $(document).ready(function(){
     $('#button-upload').click(function() {
         if (document.getElementById("enterPriceHis").value=="" ||document.getElementById("stPriceHis").value=="" ||
-                document.getElementById("tkPriceHis").value=="" || document.getElementById("profitHis").value=="" )
+                document.getElementById("tkPriceHis").value=="" || document.getElementById("profitHis").value=="" ||
+                document.getElementById("dateeHis").value=="")
         {
             return;
         }

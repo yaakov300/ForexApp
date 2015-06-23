@@ -158,6 +158,12 @@
 <script type="text/javascript">
 $(document).ready(function(){
     $('#button-upload').click(function() {
+        if (document.getElementById("enterPriceAl").value=="" ||document.getElementById("stPriceAl").value=="" ||
+                document.getElementById("tkPriceAl").value=="")
+        {
+            return;
+        }
+
         $('#cover').show();
     });
 });
