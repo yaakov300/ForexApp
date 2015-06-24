@@ -37,7 +37,7 @@ function getStep(inputID)
 {
     var selectSymbol= global_select;
     var step;
-    
+
     for (i=0; i<my_json_obj.symbol.length; i++)
     {
         if (my_json_obj.symbol[i].name==selectSymbol)
