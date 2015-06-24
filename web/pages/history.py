@@ -95,7 +95,7 @@ class HistoryHandler(webapp2.RequestHandler):
             history.put()
             self.redirect("/history")
         else:
-            
+
             self.redirect("/error_page")
 
 

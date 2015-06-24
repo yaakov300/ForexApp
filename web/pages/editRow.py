@@ -72,12 +72,22 @@ class EditHandler(webapp2.RequestHandler):
         remarksdb = self.request.get('remarks')
         userdb = user.username
 
-        history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
-                      ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
-                      lstype = lstypedb, username = userdb)
-        history.put()
-
         histories = History.getHistory()
+        for h in histories:
+            if id == h.key.id():
+                avatarDB = h.avatar
+        try:
+            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                              ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                              lstype = lstypedb, username = userdb, avatar=avatarDB)
+        except:
+            history = History(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
+                              ,profitorloss = profitorlossdb,volume=volumedb, date=dateDB ,remarks = remarksdb,
+                              lstype = lstypedb, username = userdb)
+
+
+        
+        history.put()
 
         for h in histories:
 
