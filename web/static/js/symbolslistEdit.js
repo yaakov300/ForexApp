@@ -22,10 +22,15 @@ $.getJSON('static/json/symbols.json', function(data) {
 
     out+="</select>";
     document.getElementById("edit").innerHTML = out;
+
+    getStep("enterPriceEdit");
+    getStep("stPriceEdit");
+    getStep("tkPriceEdit");
 });
 function selectChange()
 {
     global_select= document.getElementById("selectSymbol").value;
+
 }
 
 function getStep(inputID)
@@ -33,6 +38,7 @@ function getStep(inputID)
     var selectSymbol= global_select;
     var step;
 
+    console.log("in");
     for (i=0; i<my_json_obj.symbol.length; i++)
     {
         if (my_json_obj.symbol[i].name==selectSymbol)
