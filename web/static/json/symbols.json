@@ -1,10 +1,10 @@
 {
   "symbol":[
-	{"name":"minSP","price":50,"step":0.25,"type":0,"symbolName":"ESM15.CME"},
-	{"name":"NSDQ","price":20,"step":0.25,"type":0,"symbolName":"NQM15.CME"},
+	{"name":"minSP","price":50,"step":0.25,"type":0,"symbolName":"ESU15.CME"},
+	{"name":"NSDQ","price":20,"step":0.25,"type":0,"symbolName":"NQU15.CME"},
 	{"name":"DAX","price":25,"step":0.50,"type":0,"symbolName":"^GDAXI"},
-	{"name":"GOLD","price":100,"step":0.01,"type":0,"symbolName":"GCM15.CMX"},
-	{"name":"C.OIL","price":500,"step":0.01,"type":0,"symbolName":"CLN15.NYM"},
+	{"name":"GOLD","price":100,"step":0.01,"type":0,"symbolName":"GCQ15.CMX"},
+	{"name":"C.OIL","price":500,"step":0.01,"type":0,"symbolName":"CLQ15.NYM"},
 	{"name":"EUR/USD","price":100000,"step":0.00001,"type":1,"symbolName":"EURUSD"},
 	{"name":"USD/JPY","price":1000,"step":0.001,"type":1,"symbolName":"USDJPY"},
 	{"name":"USD/CAD","price":100000,"step":0.00001,"type":1,"symbolName":"USDCAD"},

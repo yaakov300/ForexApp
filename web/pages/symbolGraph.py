@@ -10,7 +10,8 @@ import logging
 from datetime import datetime
 from threading import Lock
 
-stComm="ESM15.CME,NQM15.CME,^GDAXI,GCM15.CMX,CLN15.NYM"
+stComm="ESU15.CME,NQU15.CME,GDAXI,GCQ15.CMX,CLQ15.NYM"
+
 stCurr="EURUSD,JPYUSD,CADUSD,GBPUSD,AUDUSD,NZDUSD,CHFUSD,ILSUSD"
 mutex = Lock()
 class symbolGraph(webapp2.RequestHandler):
@@ -102,6 +103,9 @@ def checkIfReached(username,symbol,enPrice,stLoss,taPro,type,volume,symbolToChec
     arrayMail = {'username': username, 'symbol': symbol, 'enPrice': enPrice, 'stLoss': stLoss, 'taPro': taPro, 'type': type, 'volume': volume, 'userMail': userMail}
     good ="good"
     bad = "bad"
+
+
+
     if (('/') in symbol):#is courrnet
         stfrom=symbol[0:3]
         stTo=symbol[4:7]
@@ -176,6 +180,7 @@ def getEmailByUserName(userName):
     return "no user"
 
 def sendMailAlert(arrayMail,pofitOrLoss):
+
      user_address = "jceforexapp@gmail.com"
      senderadress = arrayMail['userMail']
      name = "ForexApp-Alert"

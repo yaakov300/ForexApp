@@ -27,7 +27,7 @@ class symbolGraph(webapp2.RequestHandler):
         '''
 
 
-        stComm="ESM15.CME,NQM15.CME,GDAXI,GCM15.CMX,CLZ15.NYM"
+        stComm="ESU15.CME,NQU15.CME,GDAXI,GCQ15.CMX,CLQ15.NYM"
         stCurr=""
         stDax=""
         line=0;
