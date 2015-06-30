@@ -37,7 +37,7 @@ class EditAlertHandler(webapp2.RequestHandler):
                 "takeprofit": editROW.takeprofit,
                 "volume": editROW.volume,
                 "lstype": editROW.lstype,
-                "date": editROW.date
+                "date": editROW.date,
 
         })
         html = template.render("web/templates/editROWAL.html", template_params)
@@ -64,7 +64,7 @@ class EditAlertHandler(webapp2.RequestHandler):
         stopLosedb = self.request.get('stopLose')
         takeProfitdb = self.request.get('takeProfit')
         volumedb = self.request.get('volume')
-        lstypeDB = self.request.get('typels')
+        lstypeDB = self.request.get('type')
         userDB = user.username
         alert = Alert(symbol=symboldb ,enterprice=enterPricedb,stoplose = stopLosedb,takeprofit=takeProfitdb
                       ,volume=volumedb , lstype = lstypeDB , username = userDB , date= dateDB)

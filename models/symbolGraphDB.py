@@ -54,8 +54,11 @@ class symbolGraphDB(ndb.Model):
         arrFrom=symbolGraphDB.getByCul(sFrom)
 
         for x in range(len(arrTo)):
-            value=(Decimal(arrFrom[x]))/(Decimal(arrTo[x]))
-            value="{0:.2f}".format(value)
+            cFrom=(Decimal(arrFrom[x]))
+            cTo=(Decimal(arrTo[x]))
+
+            value=cFrom/cTo
+            value="{0:.4f}".format(value)
             arrCros.append(value)
 
         return  arrCros
