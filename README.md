@@ -1,9 +1,5 @@
 # ForexApp
 
-Welcome to the ForexApp fork
-
-https://github.com/yaakov300/ForexApp/wiki
+[ForexApp-home page](http://youforrexapp.appspot.com/)<br\>
 
 
-link to WebSite:
-http://youforrexapp.appspot.com/
