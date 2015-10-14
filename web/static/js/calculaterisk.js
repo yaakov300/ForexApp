@@ -89,7 +89,7 @@ function getCommodities(symbolName)
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var myArr = JSON.parse(xmlhttp.responseText);
-            if (symbolName=="^GDAXI")
+            if (symbolName=="^GDAXI" ||symbolName=="DX-Y.NYB" )
                 document.getElementById("enterPrice").value =myArr.query.results.quote.LastTradePriceOnly;
             else
                 document.getElementById("enterPrice").value =myArr.query.results.quote.Ask;

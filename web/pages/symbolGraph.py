@@ -10,7 +10,7 @@ import logging
 from datetime import datetime
 from threading import Lock
 
-stComm="ESU15.CME,NQU15.CME,^GDAXI,GCQ15.CMX,CLQ15.NYM"
+stComm="ESZ15.CME,NQZ15.CME,^GDAXI,GCV15.CMX,CLX15.NYM"
 
 stCurr="EURUSD,JPYUSD,CADUSD,GBPUSD,AUDUSD,NZDUSD,CHFUSD,ILSUSD"
 mutex = Lock()

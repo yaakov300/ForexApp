@@ -1,10 +1,11 @@
 {
   "symbol":[
-	{"name":"minSP","price":50,"step":0.25,"type":0,"symbolName":"ESU15.CME"},
-	{"name":"NSDQ","price":20,"step":0.25,"type":0,"symbolName":"NQU15.CME"},
+	{"name":"minSP","price":50,"step":0.25,"type":0,"symbolName":"ESZ15.CME"},
+	{"name":"NSDQ","price":20,"step":0.25,"type":0,"symbolName":"NQZ15.CME"},
 	{"name":"DAX","price":25,"step":0.50,"type":0,"symbolName":"^GDAXI"},
-	{"name":"GOLD","price":100,"step":0.01,"type":0,"symbolName":"GCQ15.CMX"},
-	{"name":"C.OIL","price":500,"step":0.01,"type":0,"symbolName":"CLQ15.NYM"},
+	{"name":"GOLD","price":100,"step":0.01,"type":0,"symbolName":"GCV15.CMX"},
+	{"name":"C.OIL","price":500,"step":0.01,"type":0,"symbolName":"CLX15.NYM"},
+    {"name":"USDIndex","price":1000,"step":0.005,"type":0,"symbolName":"DX-Y.NYB"},
 	{"name":"EUR/USD","price":100000,"step":0.00001,"type":1,"symbolName":"EURUSD"},
 	{"name":"USD/JPY","price":1000,"step":0.001,"type":1,"symbolName":"USDJPY"},
 	{"name":"USD/CAD","price":100000,"step":0.00001,"type":1,"symbolName":"USDCAD"},
@@ -25,6 +26,7 @@
     {"name":"GBP/CHF","price":100000,"step":0.00001,"type":1,"symbolName":"GBPCHF"},
 	{"name":"AUD/NZD","price":100000,"step":0.00001,"type":1,"symbolName":"AUDNZD"},
 	{"name":"AUD/CAD","price":100000,"step":0.00001,"type":1,"symbolName":"AUDCAD"},
+    {"name":"AUD/CHF","price":100000,"step":0.00001,"type":1,"symbolName":"AUDCHF"},
 	{"name":"NZD/JPY","price":1000,"step":0.001,"type":1,"symbolName":"NZDJPY"},
 	{"name":"NZD/CAD","price":100000,"step":0.00001,"type":1,"symbolName":"NZDCAD"},
 	{"name":"CAD/JPY","price":1000,"step":0.001,"type":1,"symbolName":"CADJPY"},
